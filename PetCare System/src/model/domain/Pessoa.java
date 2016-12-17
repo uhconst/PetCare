@@ -5,6 +5,8 @@
  */
 package model.domain;
 
+import java.util.Objects;
+
 /**
  *
  * @author Constancio
@@ -37,4 +39,95 @@ public class Pessoa{
     public Pessoa(){
 
     }
+
+    public Integer getId(){
+        return id;
+    }
+
+    public void setId( Integer id ){
+        this.id = id;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+    public void setNome( String nome ){
+        this.nome = nome;
+    }
+
+    public String getSobrenome(){
+        return sobrenome;
+    }
+
+    public void setSobrenome( String sobrenome ){
+        this.sobrenome = sobrenome;
+    }
+
+    public String getNascimento(){
+        return nascimento;
+    }
+
+    public void setNascimento( String nascimento ){
+        this.nascimento = nascimento;
+    }
+
+    public Email getEmail(){
+        return email;
+    }
+
+    public void setEmail( Email email ){
+        this.email = email;
+    }
+
+    public Telefone getTelefone(){
+        return telefone;
+    }
+
+    public void setTelefone( Telefone telefone ){
+        this.telefone = telefone;
+    }
+
+    public String getCpf(){
+        return cpf;
+    }
+
+    public void setCpf( String cpf ){
+        this.cpf = cpf;
+    }
+
+    public String getCep(){
+        return cep;
+    }
+
+    public void setCep( String cep ){
+        this.cep = cep;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = 7;
+        hash = 83 * hash + Objects.hashCode( this.id );
+        return hash;
+    }
+
+    @Override
+    public boolean equals( Object obj ){
+        if( this == obj ){
+            return true;
+        }
+        if( obj == null ){
+            return false;
+        }
+        if( getClass() != obj.getClass() ){
+            return false;
+        }
+        final Pessoa other = (Pessoa) obj;
+        if( !Objects.equals( this.id, other.id ) ){
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
