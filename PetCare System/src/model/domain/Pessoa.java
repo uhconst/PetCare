@@ -26,8 +26,8 @@ public class Pessoa{
     //private String email;
     private Email email;
     
-    //@Column(name="TELEFONE",length=20,nullable=true)
-    //private String telefone;
+    /*@Column(name="TELEFONE",length=20,nullable=true)
+    private String telefone;*/
     private Telefone telefone;
 
     // REMOVI O RG, REMOVER NA MODELAGEM

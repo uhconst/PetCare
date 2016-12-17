@@ -11,6 +11,7 @@ package model.domain;
  */
 public class Tipo_Contato{
 
+    // REMOVI A SIGLA, REMOVER NA MODELAGEM
     public Tipo_Contato(){
     }
     
