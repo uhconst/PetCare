@@ -5,6 +5,8 @@
  */
 package model.domain;
 
+import java.util.Objects;
+
 /**
  *
  * @author Constancio
@@ -28,4 +30,79 @@ public class Telefone{
     public Telefone(){
         
     }
+
+    public Integer getId(){
+        return id;
+    }
+
+    public void setId( Integer id ){
+        this.id = id;
+    }
+
+    public Pessoa getPessoa(){
+        return pessoa;
+    }
+
+    public void setPessoa( Pessoa pessoa ){
+        this.pessoa = pessoa;
+    }
+
+    public Tipo_Contato getTipo_contato(){
+        return tipo_contato;
+    }
+
+    public void setTipo_contato( Tipo_Contato tipo_contato ){
+        this.tipo_contato = tipo_contato;
+    }
+
+    public String getNumero(){
+        return numero;
+    }
+
+    public void setNumero( String numero ){
+        this.numero = numero;
+    }
+
+    public String getCategoria(){
+        return categoria;
+    }
+
+    public void setCategoria( String categoria ){
+        this.categoria = categoria;
+    }
+
+    public Boolean getPrincipal(){
+        return principal;
+    }
+
+    public void setPrincipal( Boolean principal ){
+        this.principal = principal;
+    }
+
+    @Override
+    public int hashCode(){
+        int hash = 7;
+        hash = 11 * hash + Objects.hashCode( this.id );
+        return hash;
+    }
+
+    @Override
+    public boolean equals( Object obj ){
+        if( this == obj ){
+            return true;
+        }
+        if( obj == null ){
+            return false;
+        }
+        if( getClass() != obj.getClass() ){
+            return false;
+        }
+        final Telefone other = (Telefone) obj;
+        if( !Objects.equals( this.id, other.id ) ){
+            return false;
+        }
+        return true;
+    }
+    
+    
 }
