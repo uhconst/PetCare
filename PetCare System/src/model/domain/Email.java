@@ -20,7 +20,8 @@ public class Email{
     
     private Tipo_Contato tipo_contato;
     
-    private String email;
+    // MUDAR NA MODELAGEM DE "EMAIL" PARA "ENDERECO_EMAIL"
+    private String endereco_email;
     
     private Boolean principal;
     
@@ -52,12 +53,12 @@ public class Email{
         this.tipo_contato = tipo_contato;
     }
 
-    public String getEmail(){
-        return email;
+    public String getEndereco_Email(){
+        return endereco_email;
     }
 
-    public void setEmail( String email ){
-        this.email = email;
+    public void setEndereco_Email( String endereco_email ){
+        this.endereco_email = endereco_email;
     }
 
     public Boolean getPrincipal(){
