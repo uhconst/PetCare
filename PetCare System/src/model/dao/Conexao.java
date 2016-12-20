@@ -25,7 +25,7 @@ public class Conexao{
      * persistence. Toda vez que cria uma conexao, mapeia ela.
      */
     private Conexao(){
-        emf = Persistence.createEntityManagerFactory( "PetCarePU" );
+        emf = Persistence.createEntityManagerFactory( "PetCare_SystemPU" );
     }
 
     /*

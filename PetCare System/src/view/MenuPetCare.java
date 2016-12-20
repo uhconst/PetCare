@@ -30,7 +30,7 @@ public class MenuPetCare extends javax.swing.JFrame{
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        openMenuItem = new javax.swing.JMenuItem();
+        miPessoa = new javax.swing.JMenuItem();
         saveMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
@@ -48,28 +48,27 @@ public class MenuPetCare extends javax.swing.JFrame{
         desktopPane.setLayout(null);
 
         fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        fileMenu.setText("Cadastrar");
 
-        openMenuItem.setMnemonic('o');
-        openMenuItem.setText("Open");
-        fileMenu.add(openMenuItem);
+        miPessoa.setMnemonic('o');
+        miPessoa.setText("Pessoa");
+        miPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miPessoaActionPerformed(evt);
+            }
+        });
+        fileMenu.add(miPessoa);
 
         saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("Save");
+        saveMenuItem.setText("XXXXX");
         fileMenu.add(saveMenuItem);
 
         saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Save As ...");
-        saveAsMenuItem.setDisplayedMnemonicIndex(5);
+        saveAsMenuItem.setText("XXXXX");
         fileMenu.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
-            }
-        });
+        exitMenuItem.setText("XXXX");
         fileMenu.add(exitMenuItem);
 
         menuBar.add(fileMenu);
@@ -114,19 +113,31 @@ public class MenuPetCare extends javax.swing.JFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
-        System.exit( 0 );
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    /**
+     * Remove todos os desktopPane adicionados anteriormente
+     */
+    private void closeAllDesktopPane() {
+        this.desktopPane.removeAll();
+        this.desktopPane.updateUI();
+    }
+    
+    private void miPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPessoaActionPerformed
+        /* Close previous dektopPane added before */
+        closeAllDesktopPane();
+        CadastroPessoa cadastroPessoaView = new CadastroPessoa();
+        cadastroPessoaView.setVisible(true);
+        this.desktopPane.add(cadastroPessoaView);
+    }//GEN-LAST:event_miPessoaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,7 +186,7 @@ public class MenuPetCare extends javax.swing.JFrame{
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openMenuItem;
+    private javax.swing.JMenuItem miPessoa;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;

@@ -41,7 +41,7 @@ public class PessoaDao{
         StringBuilder sql = new StringBuilder("from Pessoa c "
                 + "where 1 = 1 ");
         if (pessoa.getId() !=null) {
-            sql.append("and c.id = :idpessoa ");
+            sql.append("and c.id = :id_pessoa ");
         }
         if (pessoa.getNome() !=null &&
                 !pessoa.getNome().equals("")){
@@ -50,7 +50,7 @@ public class PessoaDao{
         }
         Query query = em.createQuery(sql.toString());
         if (pessoa.getId() !=null) {
-            query.setParameter("idpessoa",pessoa.getId());
+            query.setParameter("id_pessoa",pessoa.getId());
             
         }
         if (pessoa.getNome() != null &&
