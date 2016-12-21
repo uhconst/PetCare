@@ -5,11 +5,12 @@
  */
 package model.domain;
 
-import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -38,8 +41,10 @@ public class Pessoa{
     @Column(name="SOBRENOME")//,length=45)//,nullable=false)
     private String sobrenome;
     
+    //@Temporal(TemporalType.DATE)
     @Column(name="NASCIMENTO")
-    private Date nascimento;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private java.util.Date nascimento;
     
     //@Column(name="EMAIL",length=50,nullable=true)
     //private String email;
@@ -92,34 +97,13 @@ public class Pessoa{
         this.sobrenome = sobrenome;
     }
 
-    public Date getNascimento(){
+    public java.util.Date getNascimento(){
         return nascimento;
     }
 
-    public void setNascimento( Date nascimento ){
-        /*        DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        java.util.Date dataNascimento = null;  
-        //java.util.Date dataReuniao = null;
-        try {
-            dataNascimento = (java.util.Date) formatter.parse(nascimento.toString());
-            //dataReuniao = (java.util.Date) formatter.parse(txtDataReuniao.getValue().toString()); 
-        } catch (ParseException ex) {
-            //Logger.getLogger(CadastroPessoa.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        java.sql.Date dataNascimento_Sql = new java.sql.Date(dataNascimento.getTime());
-        System.out.println("\nDentro do model.domain , data: " + dataNascimento_Sql);
-        this.nascimento = dataNascimento_Sql;*/
-        
+    public void setNascimento( java.util.Date nascimento ){
+        //System.out.println("\nDentro do domain, date como foi recebida:" + nascimento);
         this.nascimento = nascimento;
-        //this.nascimento = new java.sql.Date(nascimento.getTime());
-        //SimpleDateFormat formatarDate = new SimpleDateFormat("yyyy-MM-dd");
-        //this.nascimento = new java.sql.Date(formatarDate.parse(nascimento).getTime());
-        //DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");   
-        //try{
-        //this.nascimento = (Date)formatter.parse(nascimento);
-        //}
-        //catch(E ex){}
-        
     }
 /*
     public Email getEmail(){

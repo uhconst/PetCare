@@ -42,7 +42,7 @@ public class PessoaControl{
     }
     
     public void salvar(){
-        System.out.println("\nBotao salvar, data: " + pessoaDigitado.getNascimento());
+        System.out.println("\nBotao salvar, dendo do control, data: " + pessoaDigitado.getNascimento());
         pessoaDao.salvarAtualizar( pessoaDigitado );
         novo();
         pesquisar();
