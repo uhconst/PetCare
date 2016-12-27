@@ -42,8 +42,6 @@ public class EmailControl{
     }
     
     public void salvar(){
-        /*System.out.println("Nome digitado: " + emailDigitado.getNome() + 
-                            "\nEmail digitado: " + emailDigitado.getEmail());*/
         emailDao.salvarAtualizar( emailDigitado );
         novo();
         pesquisar();

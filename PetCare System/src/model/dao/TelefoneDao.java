@@ -40,7 +40,7 @@ public class TelefoneDao{
         StringBuilder sql = new StringBuilder("from Telefone t "
                 + "where 1 = 1 ");
         if (telefone.getId() !=null) {
-            sql.append("and t.id = :idtelefone ");
+            sql.append("and t.id = :id_telefone ");
         }
         if (telefone.getNumero() !=null &&
                 !telefone.getNumero().equals("")){
@@ -49,7 +49,7 @@ public class TelefoneDao{
         }
         Query query = em.createQuery(sql.toString());
         if (telefone.getId() !=null) {
-            query.setParameter("idtelefone",telefone.getId());
+            query.setParameter("id_telefone",telefone.getId());
             
         }
         if (telefone.getNumero() != null &&

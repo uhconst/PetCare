@@ -40,22 +40,22 @@ public class EmailDao{
         StringBuilder sql = new StringBuilder("from Email e "
                 + "where 1 = 1 ");
         if (email.getId() !=null) {
-            sql.append("and e.id = :idemail ");
+            sql.append("and e.id = :id_email ");
         }
-        if (email.getEndereco_Email() !=null &&
+        /*if (email.getEndereco_Email() !=null &&
                 !email.getEndereco_Email().equals("")){
             sql.append("and e.endereco_email like :endereco_email");
             
-        }
+        }*/
         Query query = em.createQuery(sql.toString());
         if (email.getId() !=null) {
-            query.setParameter("idemail",email.getId());
+            query.setParameter("id_email",email.getId());
             
-        }
+        }/*
         if (email.getEndereco_Email() != null &&
                 !email.getEndereco_Email().equals("")){
             query.setParameter("endereco_email","%"+email.getEndereco_Email());
-        }
+        }*/
         return query.getResultList();
     }
 }

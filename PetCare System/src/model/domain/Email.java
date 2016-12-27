@@ -5,28 +5,53 @@
  */
 package model.domain;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Constancio
  */
-public class Email{
 
+/*@Entity
+@Table (name="EMAIL")*/
+public class Email{
+    
+/*
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID_EMAIL")*/
     private Integer id;
-    
-    //private Integer id_pessoa;
+   
+    /*@JoinColumn(name = "ID_PESSOA")
+    @ManyToOne*/
     private Pessoa pessoa;
-    
+    //private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
+  /*
+    @OneToMany
+    @JoinColumn(name = "ID_TIPO_CONTATO")*/
     private Tipo_Contato tipo_contato;
     
     // MUDAR NA MODELAGEM DE "EMAIL" PARA "ENDERECO_EMAIL"
+    //@Column(name="ENDERECO_EMAIL")
     private String endereco_email;
     
-    private Boolean principal;
+    //@Column(name="PRINCIPAL")
+    private String principal;
     
     public Email(){
-        
+        System.out.println("Dentro do construtor do email!!!");
     }
 
     public Integer getId(){
@@ -45,6 +70,17 @@ public class Email{
         this.pessoa = pessoa;
     }
 
+/*
+    public Collection<Pessoa> getPessoa(){
+        return pessoa;
+    }
+
+    public void setPessoa( Collection<Pessoa> pessoa ){
+        this.pessoa = pessoa;
+    }
+ */
+    
+    
     public Tipo_Contato getTipo_contato(){
         return tipo_contato;
     }
@@ -53,19 +89,19 @@ public class Email{
         this.tipo_contato = tipo_contato;
     }
 
-    public String getEndereco_Email(){
+    public String getEndereco_email(){
         return endereco_email;
     }
 
-    public void setEndereco_Email( String endereco_email ){
+    public void setEndereco_email( String endereco_email ){
         this.endereco_email = endereco_email;
     }
 
-    public Boolean getPrincipal(){
+    public String getPrincipal(){
         return principal;
     }
 
-    public void setPrincipal( Boolean principal ){
+    public void setPrincipal( String principal ){
         this.principal = principal;
     }
 

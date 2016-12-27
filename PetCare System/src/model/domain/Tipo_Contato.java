@@ -6,17 +6,30 @@
 package model.domain;
 
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Constancio
  */
+@Entity
+@Table (name="TIPO_CONTATO")
 public class Tipo_Contato{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID_TIPO_CONTATO")
     private Integer id;
     
+    @Column(name="TIPO")
     private String tipo;
     // REMOVI A SIGLA, REMOVER NA MODELAGEM
+    
     public Tipo_Contato(){
     
     }

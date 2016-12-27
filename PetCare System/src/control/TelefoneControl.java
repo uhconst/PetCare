@@ -10,6 +10,7 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 import model.dao.TelefoneDao;
+import model.domain.Pessoa;
 import model.domain.Telefone;
 import org.jdesktop.observablecollections.ObservableCollections;
 
@@ -22,6 +23,8 @@ public class TelefoneControl{
     private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
     
     private Telefone telefoneDigitado;
+    
+    //private Pessoa pessoaDigitada;
     
     private Telefone telefoneSelecionado;
     
@@ -88,7 +91,13 @@ public class TelefoneControl{
         this.telefonesTabela = telefonesTabela;
     }
  
-     public void addPropertyChangeListener(PropertyChangeListener e){
+    // Setando a pessoa que foi digitada e salva
+    public void setPessoaDigitada( Pessoa pessoaDigitada ){
+        telefoneDigitado.setPessoa( pessoaDigitada );
+    }
+
+    
+    public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );
     }
     

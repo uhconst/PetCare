@@ -6,26 +6,46 @@
 package model.domain;
 
 import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Constancio
  */
+/*
+@Entity
+@Table (name="TELEFONE")*/
 public class Telefone{
-    
+    /*
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="ID_TELEFONE")*/
     private Integer id;
-    
-    //private Integer id_pessoa;
+    /*
+    @OneToOne
+    @JoinColumn(name = "ID_PESSOA")*/
     private Pessoa pessoa;
-    
+ /*
+    @OneToOne
+    @JoinColumn(name = "ID_TIPO_CONTATO")*/
     private Tipo_Contato tipo_contato;
     
     // Na modelagem ta telefone, mudar lá
+    //@Column(name="NUMERO")
     private String numero;
     
+    //@Column(name="CATEGORIA")
     private String categoria;
     
-    private Boolean principal;
+    //@Column(name="PRINCIPAL")
+    private String principal;
     
     public Telefone(){
         
@@ -71,11 +91,11 @@ public class Telefone{
         this.categoria = categoria;
     }
 
-    public Boolean getPrincipal(){
+    public String getPrincipal(){
         return principal;
     }
 
-    public void setPrincipal( Boolean principal ){
+    public void setPrincipal( String principal ){
         this.principal = principal;
     }
 

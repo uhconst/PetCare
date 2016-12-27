@@ -41,7 +41,8 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     public TelefoneControl getTelefoneControl(){
         return telefoneControl;
     }
-
+*/
+/*
     public EmailControl getEmailControl(){
         return emailControl;
     }
@@ -276,6 +277,11 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         */
         
         pessoaControl.salvar();
+        
+        //Setando a pessoa inserida
+        //telefoneControl.setPessoaDigitada(pessoaControl.getPessoaDigitado());
+        
+        //telefoneControl.salvar();
         JOptionPane.showMessageDialog(this,
                 "Pessoa salva com sucesso",
                 "Salvar pessoa",
