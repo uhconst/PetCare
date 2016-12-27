@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -23,8 +24,8 @@ import javax.persistence.Table;
  *
  * @author Constancio
  */
-
-/*@Entity
+/*
+@Entity
 @Table (name="EMAIL")*/
 public class Email{
     
@@ -35,9 +36,12 @@ public class Email{
     private Integer id;
    
     /*@JoinColumn(name = "ID_PESSOA")
-    @ManyToOne*/
-    private Pessoa pessoa;
-    //private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
+    @ManyToOne
+    private Pessoa pessoa;*/
+    /*@OneToMany
+    @JoinTable(name="EMAIL_PESSOA", joinColumns=@JoinColumn(name="EMAIL_ID"), 
+                inverseJoinColumns=@JoinColumn(name="PESSOA_ID"))*/
+    private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
   /*
     @OneToMany
     @JoinColumn(name = "ID_TIPO_CONTATO")*/
@@ -61,7 +65,7 @@ public class Email{
     public void setId( Integer id ){
         this.id = id;
     }
-
+/*
     public Pessoa getPessoa(){
         return pessoa;
     }
@@ -69,17 +73,7 @@ public class Email{
     public void setPessoa( Pessoa pessoa ){
         this.pessoa = pessoa;
     }
-
-/*
-    public Collection<Pessoa> getPessoa(){
-        return pessoa;
-    }
-
-    public void setPessoa( Collection<Pessoa> pessoa ){
-        this.pessoa = pessoa;
-    }
- */
-    
+*/      
     
     public Tipo_Contato getTipo_contato(){
         return tipo_contato;

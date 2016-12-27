@@ -31,7 +31,7 @@ public class MenuPetCare extends javax.swing.JFrame{
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         miPessoa = new javax.swing.JMenuItem();
-        saveMenuItem = new javax.swing.JMenuItem();
+        miRaca = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
@@ -59,9 +59,14 @@ public class MenuPetCare extends javax.swing.JFrame{
         });
         fileMenu.add(miPessoa);
 
-        saveMenuItem.setMnemonic('s');
-        saveMenuItem.setText("XXXXX");
-        fileMenu.add(saveMenuItem);
+        miRaca.setMnemonic('s');
+        miRaca.setText("Raça");
+        miRaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRacaActionPerformed(evt);
+            }
+        });
+        fileMenu.add(miRaca);
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("XXXXX");
@@ -139,6 +144,14 @@ public class MenuPetCare extends javax.swing.JFrame{
         this.desktopPane.add(cadastroPessoaView);
     }//GEN-LAST:event_miPessoaActionPerformed
 
+    private void miRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRacaActionPerformed
+        /* Close previous dektopPane added before */
+        closeAllDesktopPane();
+        CadastroRaca cadastroRacaView = new CadastroRaca();
+        cadastroRacaView.setVisible(true);
+        this.desktopPane.add(cadastroRacaView);
+    }//GEN-LAST:event_miRacaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -187,9 +200,9 @@ public class MenuPetCare extends javax.swing.JFrame{
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem miPessoa;
+    private javax.swing.JMenuItem miRaca;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
-    private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
