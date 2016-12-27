@@ -1,0 +1,96 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package control;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.List;
+import model.dao.AnimalDao;
+import model.domain.Animal;
+import org.jdesktop.observablecollections.ObservableCollections;
+
+/**
+ *
+ * @author Constancio
+ */
+public class AnimalControl{
+            
+    private final PropertyChangeSupport propertyChangeSupport = new PropertyChangeSupport(this);
+    
+    private Animal animalDigitado;
+    
+    private Animal animalSelecionado;
+    
+    private List<Animal> animalsTabela;
+    
+    private final AnimalDao animalDao;
+    
+    public AnimalControl(){
+        animalDao = new AnimalDao();
+        animalsTabela = ObservableCollections.observableList( new ArrayList<Animal>() );
+        novo();
+        pesquisar();
+    }
+    
+    public void pesquisar(){
+        animalsTabela.clear();
+        animalsTabela.addAll(animalDao.pesquisar(animalDigitado));
+    }
+    
+    public void salvar(){
+        animalDao.salvarAtualizar( animalDigitado );
+        novo();
+        pesquisar();
+    }
+    
+    public void excluir(){
+        animalDao.excluir( animalSelecionado );
+        novo();
+        pesquisar();
+    }
+    
+    public void novo(){
+         setAnimalDigitado( new Animal() );
+    }
+
+    public Animal getAnimalDigitado(){
+        return animalDigitado;
+    }
+
+    public void setAnimalDigitado( Animal animalDigitado ){
+        Animal oldAnimalDigitado = this.animalDigitado;
+        this.animalDigitado = animalDigitado;
+        propertyChangeSupport.firePropertyChange( "animalDigitado", oldAnimalDigitado, animalDigitado);
+    }
+
+    public Animal getAnimalSelecionado(){
+        return animalSelecionado;
+    }
+
+    public void setAnimalSelecionado( Animal animalSelecionado ){
+        this.animalSelecionado = animalSelecionado;
+        if( this.animalSelecionado != null ){
+            setAnimalDigitado(animalSelecionado);
+        }
+    }
+
+    public List<Animal> getAnimalsTabela(){
+        return animalsTabela;
+    }
+
+    public void setAnimalsTabela( List<Animal> animalsTabela ){
+        this.animalsTabela = animalsTabela;
+    }
+ 
+     public void addPropertyChangeListener(PropertyChangeListener e){
+        propertyChangeSupport.addPropertyChangeListener( e );
+    }
+    
+    public void removePropertyChangeListener(PropertyChangeListener e) {
+        propertyChangeSupport.removePropertyChangeListener(e);
+    }
+}
