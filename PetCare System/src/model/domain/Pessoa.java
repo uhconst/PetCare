@@ -131,7 +131,11 @@ public class Pessoa{
     }
 
     public void setCep( String cep ){
-        this.cep = cep;
+        /*
+         * Usando RegEx para salvar o cep sem a mascara do
+         * JFormatedTextField.
+         */
+        this.cep = cep.replaceAll("[-]", "");
     }
 
     @Override
