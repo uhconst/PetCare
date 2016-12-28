@@ -42,10 +42,10 @@ public class Email{
                 inverseJoinColumns=@JoinColumn(name="PESSOA_ID"))*/
     //private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
   
-    
+    /*
     @ManyToOne
     @JoinColumn(name = "ID_TIPO_CONTATO")
-    private Tipo_Contato tipo_contato;
+    private Tipo_Contato tipo_contato;*/
     
     // MUDAR NA MODELAGEM DE "EMAIL" PARA "ENDERECO_EMAIL"
     @Column(name="ENDERECO_EMAIL")
@@ -54,6 +54,9 @@ public class Email{
     @Column(name="PRINCIPAL")
     private String principal;
     
+    @Column(name="TIPO_CONTATO")
+    private String tipo_contato;
+        
     public Email(){
         System.out.println("Dentro do construtor do email!!!");
     }
@@ -65,7 +68,7 @@ public class Email{
     public void setId( Integer id ){
         this.id = id;
     }
-/*
+
     public Pessoa getPessoa(){
         return pessoa;
     }
@@ -73,15 +76,15 @@ public class Email{
     public void setPessoa( Pessoa pessoa ){
         this.pessoa = pessoa;
     }
-*/      
-    
+
+    /*
     public Tipo_Contato getTipo_contato(){
         return tipo_contato;
     }
 
     public void setTipo_contato( Tipo_Contato tipo_contato ){
         this.tipo_contato = tipo_contato;
-    }
+    }*/
 
     public String getEndereco_email(){
         return endereco_email;
@@ -97,6 +100,14 @@ public class Email{
 
     public void setPrincipal( String principal ){
         this.principal = principal;
+    }
+
+    public String getTipo_contato(){
+        return tipo_contato;
+    }
+
+    public void setTipo_contato( String tipo_contato ){
+        this.tipo_contato = tipo_contato;
     }
 
     

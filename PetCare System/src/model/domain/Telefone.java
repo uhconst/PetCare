@@ -48,6 +48,9 @@ public class Telefone{
     @Column(name="PRINCIPAL")
     private String principal;
     
+    @Column(name="TIPO_CONTATO")
+    private String tipo_contato;
+    
     public Telefone(){
         
     }
@@ -100,6 +103,15 @@ public class Telefone{
         this.principal = principal;
     }
 
+    public String getTipo_contato(){
+        return tipo_contato;
+    }
+
+    public void setTipo_contato( String tipo_contato ){
+        this.tipo_contato = tipo_contato;
+    }
+
+    
     @Override
     public int hashCode(){
         int hash = 7;

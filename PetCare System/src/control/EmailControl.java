@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.dao.EmailDao;
 import model.domain.Email;
+import model.domain.Pessoa;
 import org.jdesktop.observablecollections.ObservableCollections;
 
 /**
@@ -85,7 +86,12 @@ public class EmailControl{
     public void setEmailsTabela( List<Email> emailsTabela ){
         this.emailsTabela = emailsTabela;
     }
- 
+    
+    // Setando a pessoa que foi digitada e salva
+    public void setPessoaDigitada( Pessoa pessoaDigitada ){
+        emailDigitado.setPessoa( pessoaDigitada );
+    }
+     
      public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );
     }
@@ -93,4 +99,6 @@ public class EmailControl{
     public void removePropertyChangeListener(PropertyChangeListener e) {
         propertyChangeSupport.removePropertyChangeListener(e);
     }
+
+
 }
