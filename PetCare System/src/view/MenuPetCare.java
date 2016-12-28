@@ -29,13 +29,13 @@ public class MenuPetCare extends javax.swing.JFrame{
 
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        miPessoa = new javax.swing.JMenuItem();
-        miRaca = new javax.swing.JMenuItem();
+        fmCadastrar = new javax.swing.JMenu();
+        miCadastrarPessoa = new javax.swing.JMenuItem();
+        miCadastrarRaca = new javax.swing.JMenuItem();
         saveAsMenuItem = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
+        fmConsultar = new javax.swing.JMenu();
+        miConsultarPessoa = new javax.swing.JMenuItem();
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
@@ -47,57 +47,57 @@ public class MenuPetCare extends javax.swing.JFrame{
 
         desktopPane.setLayout(null);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Cadastrar");
+        fmCadastrar.setMnemonic('f');
+        fmCadastrar.setText("Cadastrar");
 
-        miPessoa.setMnemonic('o');
-        miPessoa.setText("Pessoa");
-        miPessoa.addActionListener(new java.awt.event.ActionListener() {
+        miCadastrarPessoa.setMnemonic('o');
+        miCadastrarPessoa.setText("Pessoa");
+        miCadastrarPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miPessoaActionPerformed(evt);
+                miCadastrarPessoaActionPerformed(evt);
             }
         });
-        fileMenu.add(miPessoa);
+        fmCadastrar.add(miCadastrarPessoa);
 
-        miRaca.setMnemonic('s');
-        miRaca.setText("Raça");
-        miRaca.addActionListener(new java.awt.event.ActionListener() {
+        miCadastrarRaca.setMnemonic('s');
+        miCadastrarRaca.setText("Raça");
+        miCadastrarRaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                miRacaActionPerformed(evt);
+                miCadastrarRacaActionPerformed(evt);
             }
         });
-        fileMenu.add(miRaca);
+        fmCadastrar.add(miCadastrarRaca);
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("XXXXX");
-        fileMenu.add(saveAsMenuItem);
+        fmCadastrar.add(saveAsMenuItem);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("XXXX");
-        fileMenu.add(exitMenuItem);
+        fmCadastrar.add(exitMenuItem);
 
-        menuBar.add(fileMenu);
+        menuBar.add(fmCadastrar);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        fmConsultar.setMnemonic('e');
+        fmConsultar.setText("Consultar");
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        miConsultarPessoa.setMnemonic('t');
+        miConsultarPessoa.setText("Pessoa");
+        fmConsultar.add(miConsultarPessoa);
 
         copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        copyMenuItem.setText("XXXXXX");
+        fmConsultar.add(copyMenuItem);
 
         pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
+        pasteMenuItem.setText("XXXXXX");
+        fmConsultar.add(pasteMenuItem);
 
         deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        deleteMenuItem.setText("XXXXX");
+        fmConsultar.add(deleteMenuItem);
 
-        menuBar.add(editMenu);
+        menuBar.add(fmConsultar);
 
         helpMenu.setMnemonic('h');
         helpMenu.setText("Help");
@@ -136,21 +136,21 @@ public class MenuPetCare extends javax.swing.JFrame{
         this.desktopPane.updateUI();
     }
     
-    private void miPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miPessoaActionPerformed
+    private void miCadastrarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarPessoaActionPerformed
         /* Close previous dektopPane added before */
         closeAllDesktopPane();
         CadastroPessoa cadastroPessoaView = new CadastroPessoa();
         cadastroPessoaView.setVisible(true);
         this.desktopPane.add(cadastroPessoaView);
-    }//GEN-LAST:event_miPessoaActionPerformed
+    }//GEN-LAST:event_miCadastrarPessoaActionPerformed
 
-    private void miRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRacaActionPerformed
+    private void miCadastrarRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarRacaActionPerformed
         /* Close previous dektopPane added before */
         closeAllDesktopPane();
         CadastroRaca cadastroRacaView = new CadastroRaca();
         cadastroRacaView.setVisible(true);
         this.desktopPane.add(cadastroRacaView);
-    }//GEN-LAST:event_miRacaActionPerformed
+    }//GEN-LAST:event_miCadastrarRacaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,16 +191,16 @@ public class MenuPetCare extends javax.swing.JFrame{
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem deleteMenuItem;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu fmCadastrar;
+    private javax.swing.JMenu fmConsultar;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem miPessoa;
-    private javax.swing.JMenuItem miRaca;
+    private javax.swing.JMenuItem miCadastrarPessoa;
+    private javax.swing.JMenuItem miCadastrarRaca;
+    private javax.swing.JMenuItem miConsultarPessoa;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     // End of variables declaration//GEN-END:variables

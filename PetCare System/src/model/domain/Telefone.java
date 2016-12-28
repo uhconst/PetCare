@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,32 +20,32 @@ import javax.persistence.Table;
  *
  * @author Constancio
  */
-/*
+
 @Entity
-@Table (name="TELEFONE")*/
+@Table (name="TELEFONE")
 public class Telefone{
-    /*
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID_TELEFONE")*/
+    @Column(name="ID_TELEFONE")
     private Integer id;
-    /*
-    @OneToOne
-    @JoinColumn(name = "ID_PESSOA")*/
+    
+    @ManyToOne
+    @JoinColumn(name = "ID_PESSOA")
     private Pessoa pessoa;
  /*
-    @OneToOne
-    @JoinColumn(name = "ID_TIPO_CONTATO")*/
-    private Tipo_Contato tipo_contato;
+    @ManyToOne
+    @JoinColumn(name = "ID_TIPO_CONTATO")
+    private Tipo_Contato tipo_contato;*/
     
     // Na modelagem ta telefone, mudar lá
-    //@Column(name="NUMERO")
+    @Column(name="NUMERO")
     private String numero;
     
-    //@Column(name="CATEGORIA")
+    @Column(name="CATEGORIA")
     private String categoria;
     
-    //@Column(name="PRINCIPAL")
+    @Column(name="PRINCIPAL")
     private String principal;
     
     public Telefone(){
@@ -66,7 +67,7 @@ public class Telefone{
     public void setPessoa( Pessoa pessoa ){
         this.pessoa = pessoa;
     }
-
+/*
     public Tipo_Contato getTipo_contato(){
         return tipo_contato;
     }
@@ -74,7 +75,7 @@ public class Telefone{
     public void setTipo_contato( Tipo_Contato tipo_contato ){
         this.tipo_contato = tipo_contato;
     }
-
+*/
     public String getNumero(){
         return numero;
     }

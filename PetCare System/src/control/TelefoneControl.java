@@ -94,6 +94,9 @@ public class TelefoneControl{
     // Setando a pessoa que foi digitada e salva
     public void setPessoaDigitada( Pessoa pessoaDigitada ){
         telefoneDigitado.setPessoa( pessoaDigitada );
+        System.out.println("\n*******Dentro do TelefoneControl. "
+                + "Nome da pessoa digitada: " + pessoaDigitada.getNome() +
+                "*********");
     }
 
     

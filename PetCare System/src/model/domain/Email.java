@@ -24,34 +24,34 @@ import javax.persistence.Table;
  *
  * @author Constancio
  */
-/*
+
 @Entity
-@Table (name="EMAIL")*/
+@Table (name="EMAIL")
 public class Email{
     
-/*
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID_EMAIL")*/
+    @Column(name="ID_EMAIL")
     private Integer id;
    
-    /*@JoinColumn(name = "ID_PESSOA")
+    @JoinColumn(name = "ID_PESSOA")
     @ManyToOne
-    private Pessoa pessoa;*/
+    private Pessoa pessoa;
     /*@OneToMany
     @JoinTable(name="EMAIL_PESSOA", joinColumns=@JoinColumn(name="EMAIL_ID"), 
                 inverseJoinColumns=@JoinColumn(name="PESSOA_ID"))*/
-    private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
-  /*
-    @OneToMany
-    @JoinColumn(name = "ID_TIPO_CONTATO")*/
+    //private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
+  
+    
+    @ManyToOne
+    @JoinColumn(name = "ID_TIPO_CONTATO")
     private Tipo_Contato tipo_contato;
     
     // MUDAR NA MODELAGEM DE "EMAIL" PARA "ENDERECO_EMAIL"
-    //@Column(name="ENDERECO_EMAIL")
+    @Column(name="ENDERECO_EMAIL")
     private String endereco_email;
     
-    //@Column(name="PRINCIPAL")
+    @Column(name="PRINCIPAL")
     private String principal;
     
     public Email(){

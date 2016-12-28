@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -20,7 +21,7 @@ import javax.persistence.Table;
  * @author Constancio
  */
 @Entity
-@Table (name="Animal")
+@Table (name="ANIMAL")
 public class Animal{
         
     @Id
@@ -28,7 +29,7 @@ public class Animal{
     @Column(name="ID_ANIMAL")
     private Integer id;
     
-    @OneToMany
+    @OneToOne
     @JoinColumn(name = "ID_RACA")
     private Raca raca;
     
