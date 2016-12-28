@@ -119,7 +119,11 @@ public class Pessoa{
     }
 
     public void setCpf( String cpf ){
-        this.cpf = cpf;
+        /*
+         * Usando RegEx para salvar o cpf sem a mascara do
+         * JFormatedTextField.
+         */
+        this.cpf = cpf.replaceAll("[.-]", "");
     }
 
     public String getCep(){
