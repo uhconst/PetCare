@@ -84,7 +84,7 @@ public class Telefone{
     }
 
     public void setNumero( String numero ){
-        this.numero = numero;
+        this.numero = numero.replaceAll("[()]", "");  
     }
 
     public String getCategoria(){
