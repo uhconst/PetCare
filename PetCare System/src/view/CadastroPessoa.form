@@ -75,17 +75,24 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtNome" alignment="0" pref="234" max="32767" attributes="0"/>
-                          <Component id="txtSobrenome" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtNome" alignment="0" pref="234" max="32767" attributes="0"/>
+                                  <Component id="txtSobrenome" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="ftxtNascimento" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Component id="ftxtNascimento" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="ftxtCep" alignment="0" max="32767" attributes="0"/>
-                          <Component id="ftxtCpf" alignment="0" pref="136" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="ftxtCep" alignment="0" max="32767" attributes="0"/>
+                              <Component id="ftxtCpf" alignment="0" pref="136" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,7 +124,7 @@
                       <Component id="lblCEP" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ftxtCep" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -165,7 +172,7 @@
         <Component class="javax.swing.JFormattedTextField" name="ftxtNascimento">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="1" type="1"/>
+              <Format format="d/M/yy" subtype="-1" type="1"/>
             </Property>
           </Properties>
           <BindingProperties>
@@ -274,7 +281,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtCategoria" max="32767" attributes="0"/>
+                          <Component id="cbCategoria" min="-2" pref="144" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblTelefone" min="-2" max="-2" attributes="0"/>
@@ -287,7 +294,7 @@
                           <Component id="txtPrincipalTelefone" min="-2" pref="84" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace pref="33" max="32767" attributes="0"/>
                   <Component id="lblTipoContatoTelefone" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="txtTipoContatoTelefone" min="-2" pref="68" max="-2" attributes="0"/>
@@ -317,9 +324,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="lblPrincipalTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -349,13 +356,6 @@
             <Property name="text" type="java.lang.String" value="Categoria"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCategoria">
-          <BindingProperties>
-            <BindingProperty name="text" source="Form" sourcePath="${telefoneControl.telefoneDigitado.categoria}" target="txtCategoria" targetPath="text" updateStrategy="0" immediately="false">
-              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-            </BindingProperty>
-          </BindingProperties>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtPrincipalTelefone">
           <BindingProperties>
             <BindingProperty name="text" source="Form" sourcePath="${telefoneControl.telefoneDigitado.principal}" target="txtPrincipalTelefone" targetPath="text" updateStrategy="0" immediately="false">
@@ -379,6 +379,22 @@
               <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
             </BindingProperty>
           </BindingProperties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbCategoria">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Fixo"/>
+                <StringItem index="1" value="Celular"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <BindingProperties>
+            <BindingProperty name="selectedItem" source="Form" sourcePath="${telefoneControl.telefoneDigitado.categoria}" target="cbCategoria" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
+          </BindingProperties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

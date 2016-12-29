@@ -76,11 +76,11 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         txtTelefone = new javax.swing.JTextField();
         lblTelefone = new javax.swing.JLabel();
         lblCategoria = new javax.swing.JLabel();
-        txtCategoria = new javax.swing.JTextField();
         txtPrincipalTelefone = new javax.swing.JTextField();
         lblPrincipalTelefone = new javax.swing.JLabel();
         lblTipoContatoTelefone = new javax.swing.JLabel();
         txtTipoContatoTelefone = new javax.swing.JTextField();
+        cbCategoria = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -107,7 +107,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pessoaControl.pessoaDigitado.sobrenome}"), txtSobrenome, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        ftxtNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        ftxtNascimento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("d/M/yy"))));
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pessoaControl.pessoaDigitado.nascimento}"), ftxtNascimento, org.jdesktop.beansbinding.BeanProperty.create("value"));
         bindingGroup.addBinding(binding);
@@ -144,14 +144,18 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                     .addComponent(lblCEP))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
-                        .addComponent(txtSobrenome))
-                    .addComponent(ftxtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(ftxtCep, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ftxtCpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtNome, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
+                                .addComponent(txtSobrenome))
+                            .addComponent(ftxtNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ftxtCep, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ftxtCpf, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +180,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCEP)
                     .addComponent(ftxtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -225,9 +229,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
 
         lblCategoria.setText("Categoria");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${telefoneControl.telefoneDigitado.categoria}"), txtCategoria, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${telefoneControl.telefoneDigitado.principal}"), txtPrincipalTelefone, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
@@ -236,6 +237,11 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         lblTipoContatoTelefone.setText("Tipo Cont");
 
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${telefoneControl.telefoneDigitado.tipo_contato}"), txtTipoContatoTelefone, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        cbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fixo", "Celular" }));
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${telefoneControl.telefoneDigitado.categoria}"), cbCategoria, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
         bindingGroup.addBinding(binding);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -248,7 +254,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblCategoria)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCategoria))
+                        .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblTelefone)
                         .addGap(18, 18, 18)
@@ -257,7 +263,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                         .addComponent(lblPrincipalTelefone)
                         .addGap(18, 18, 18)
                         .addComponent(txtPrincipalTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(lblTipoContatoTelefone)
                 .addGap(18, 18, 18)
                 .addComponent(txtTipoContatoTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,8 +287,8 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCategoria)
-                            .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38))
+                            .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblPrincipalTelefone)
                         .addComponent(txtPrincipalTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -395,6 +401,9 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         System.out.println("\nGetText:" + ftxtCpf.getText());*/
 
         
+        System.out.println("\n getSelectedItem:" + cbCategoria.getSelectedItem());
+        //String test = cbCategoria.getSelectedItem();
+        
         //Setando a pessoa inserida. Tem que ser antes de salvar a pessoa 
         // no control, senao ele seta uma nova pessoa apos salva-la. E no
         // telefone control a pessoa ficaria null. Pensar sobre validação disso,
@@ -420,6 +429,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox<String> cbCategoria;
     private javax.swing.JFormattedTextField ftxtCep;
     private javax.swing.JFormattedTextField ftxtCpf;
     private javax.swing.JFormattedTextField ftxtNascimento;
@@ -439,7 +449,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JLabel lblTipoContatoEmail;
     private javax.swing.JLabel lblTipoContatoTelefone;
-    private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPrincipalEmail;
