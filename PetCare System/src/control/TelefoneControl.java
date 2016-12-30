@@ -99,6 +99,14 @@ public class TelefoneControl{
                 "*********");
     }
 
+    public void setPrincipal( Boolean principal ){
+        if(principal){
+            telefoneDigitado.setPrincipal( "S" );
+        }
+        else{
+            telefoneDigitado.setPrincipal( "N" );
+        }
+    }
     
     public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );

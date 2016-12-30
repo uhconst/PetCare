@@ -75,12 +75,12 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         jPanel3 = new javax.swing.JPanel();
         lblTelefone = new javax.swing.JLabel();
         lblCategoria = new javax.swing.JLabel();
-        txtPrincipalTelefone = new javax.swing.JTextField();
         lblPrincipalTelefone = new javax.swing.JLabel();
         lblTipoContatoTelefone = new javax.swing.JLabel();
         txtTipoContatoTelefone = new javax.swing.JTextField();
         cbCategoria = new javax.swing.JComboBox<>();
         ftxtTelefone = new javax.swing.JFormattedTextField();
+        chbPrincipalTelefone = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
@@ -226,9 +226,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
 
         lblCategoria.setText("Categoria");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${telefoneControl.telefoneDigitado.principal}"), txtPrincipalTelefone, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
         lblPrincipalTelefone.setText("Principal");
 
         lblTipoContatoTelefone.setText("Tipo Cont");
@@ -251,6 +248,12 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${telefoneControl.telefoneDigitado.numero}"), ftxtTelefone, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
+        chbPrincipalTelefone.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                chbPrincipalTelefoneStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -269,7 +272,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(lblPrincipalTelefone)
                         .addGap(18, 18, 18)
-                        .addComponent(txtPrincipalTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(chbPrincipalTelefone)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(lblTipoContatoTelefone)
                 .addGap(18, 18, 18)
@@ -295,10 +298,10 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                     .addComponent(lblCategoria)
                     .addComponent(cbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPrincipalTelefone)
-                    .addComponent(txtPrincipalTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(chbPrincipalTelefone))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -407,8 +410,10 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         System.out.println("\nGetText:" + ftxtCpf.getText());*/
 
         
-        System.out.println("\n getSelectedItem:" + cbCategoria.getSelectedItem());
+        //System.out.println("\n getSelectedItem:" + cbCategoria.getSelectedItem());
         //String test = cbCategoria.getSelectedItem();
+        Boolean teste = chbPrincipalTelefone.isSelected();
+        
         
         //Setando a pessoa inserida. Tem que ser antes de salvar a pessoa 
         // no control, senao ele seta uma nova pessoa apos salva-la. E no
@@ -430,12 +435,20 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                 JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    /*
+     * Check box mudou de estado. Seta o novo estado no TelefoneControl
+    */
+    private void chbPrincipalTelefoneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chbPrincipalTelefoneStateChanged
+        telefoneControl.setPrincipal( chbPrincipalTelefone.isSelected() );
+    }//GEN-LAST:event_chbPrincipalTelefoneStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbCategoria;
+    private javax.swing.JCheckBox chbPrincipalTelefone;
     private javax.swing.JFormattedTextField ftxtCep;
     private javax.swing.JFormattedTextField ftxtCpf;
     private javax.swing.JFormattedTextField ftxtNascimento;
@@ -459,7 +472,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtPrincipalEmail;
-    private javax.swing.JTextField txtPrincipalTelefone;
     private javax.swing.JTextField txtSobrenome;
     private javax.swing.JTextField txtTipoContatoEmail;
     private javax.swing.JTextField txtTipoContatoTelefone;
