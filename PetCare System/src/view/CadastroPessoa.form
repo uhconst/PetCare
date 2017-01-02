@@ -24,7 +24,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jPanel4" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jPanel1" max="32767" attributes="0"/>
@@ -119,12 +119,12 @@
                       <Component id="lblCPF" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ftxtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblCEP" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ftxtCep" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -275,9 +275,14 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="lblTipoContatoTelefone" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cbTipoContatoTelefone" max="32767" attributes="0"/>
+                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="lblCategoria" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -288,37 +293,27 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="ftxtTelefone" min="-2" pref="142" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="lblPrincipalTelefone" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="chbPrincipalTelefone" min="-2" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
-                  <Component id="lblTipoContatoTelefone" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <Component id="lblPrincipalTelefone" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txtTipoContatoTelefone" min="-2" pref="68" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="chbPrincipalTelefone" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtTipoContatoTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTipoContatoTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ftxtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ftxtTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="lblPrincipalTelefone" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbPrincipalTelefone" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -326,12 +321,12 @@
                       <Component id="lblCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cbCategoria" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblPrincipalTelefone" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbPrincipalTelefone" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblTipoContatoTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbTipoContatoTelefone" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -347,22 +342,10 @@
             <Property name="text" type="java.lang.String" value="Categoria"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblPrincipalTelefone">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Principal"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="lblTipoContatoTelefone">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tipo Cont"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTipoContatoTelefone">
-          <BindingProperties>
-            <BindingProperty name="text" source="Form" sourcePath="${telefoneControl.telefoneDigitado.tipo_contato}" target="txtTipoContatoTelefone" targetPath="text" updateStrategy="0" immediately="false">
-              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-            </BindingProperty>
-          </BindingProperties>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbCategoria">
           <Properties>
@@ -393,10 +376,31 @@
             </BindingProperty>
           </BindingProperties>
         </Component>
+        <Component class="javax.swing.JComboBox" name="cbTipoContatoTelefone">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Pessoal"/>
+                <StringItem index="1" value="Profissional"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <BindingProperties>
+            <BindingProperty name="selectedItem" source="Form" sourcePath="${telefoneControl.telefoneDigitado.tipo_contato}" target="cbTipoContatoTelefone" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
+          </BindingProperties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
         <Component class="javax.swing.JCheckBox" name="chbPrincipalTelefone">
           <Events>
             <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="chbPrincipalTelefoneStateChanged"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblPrincipalTelefone">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Principal"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -415,24 +419,28 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrincipalEmail" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblTipoContatoEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="txtPrincipalEmail" min="-2" pref="84" max="-2" attributes="0"/>
-                          <EmptySpace min="63" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="lblPrincipalEmail" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="chbPrincipalEmail" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txtTipoContatoEmail" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtEmail" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTipoContatoEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtEmail" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cbTipoContatoEmail" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="2" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -444,15 +452,15 @@
                       <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPrincipalEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblPrincipalEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblTipoContatoEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtTipoContatoEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbTipoContatoEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblPrincipalEmail" min="-2" max="-2" attributes="0"/>
+                      <Component id="chbPrincipalEmail" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -472,29 +480,36 @@
             </BindingProperty>
           </BindingProperties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPrincipalEmail">
-          <BindingProperties>
-            <BindingProperty name="text" source="Form" sourcePath="${emailControl.emailDigitado.principal}" target="txtPrincipalEmail" targetPath="text" updateStrategy="0" immediately="false">
-              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-            </BindingProperty>
-          </BindingProperties>
+        <Component class="javax.swing.JLabel" name="lblTipoContatoEmail">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tipo de Contato"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chbPrincipalEmail">
+          <Events>
+            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="chbPrincipalEmailStateChanged"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPrincipalEmail">
           <Properties>
             <Property name="text" type="java.lang.String" value="Principal"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTipoContatoEmail">
+        <Component class="javax.swing.JComboBox" name="cbTipoContatoEmail">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de Contato"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="2">
+                <StringItem index="0" value="Pessoal"/>
+                <StringItem index="1" value="Profissional"/>
+              </StringArray>
+            </Property>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtTipoContatoEmail">
           <BindingProperties>
-            <BindingProperty name="text" source="Form" sourcePath="${emailControl.emailDigitado.tipo_contato}" target="txtTipoContatoEmail" targetPath="text" updateStrategy="0" immediately="false">
-              <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-            </BindingProperty>
+            <BindingProperty name="selectedItem" source="Form" sourcePath="${emailControl.emailDigitado.tipo_contato}" target="cbTipoContatoEmail" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
           </BindingProperties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

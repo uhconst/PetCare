@@ -91,7 +91,16 @@ public class EmailControl{
     public void setPessoaDigitada( Pessoa pessoaDigitada ){
         emailDigitado.setPessoa( pessoaDigitada );
     }
-     
+    
+    public void setPrincipal( Boolean principal ){
+        if(principal){
+            emailDigitado.setPrincipal( "S" );
+        }
+        else{
+            emailDigitado.setPrincipal( "N" );
+        }
+    }
+        
      public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );
     }
@@ -99,6 +108,5 @@ public class EmailControl{
     public void removePropertyChangeListener(PropertyChangeListener e) {
         propertyChangeSupport.removePropertyChangeListener(e);
     }
-
 
 }
