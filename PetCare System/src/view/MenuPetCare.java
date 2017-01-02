@@ -83,6 +83,11 @@ public class MenuPetCare extends javax.swing.JFrame{
 
         miConsultarPessoa.setMnemonic('t');
         miConsultarPessoa.setText("Pessoa");
+        miConsultarPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miConsultarPessoaActionPerformed(evt);
+            }
+        });
         fmConsultar.add(miConsultarPessoa);
 
         copyMenuItem.setMnemonic('y');
@@ -151,6 +156,11 @@ public class MenuPetCare extends javax.swing.JFrame{
         cadastroRacaView.setVisible(true);
         this.desktopPane.add(cadastroRacaView);
     }//GEN-LAST:event_miCadastrarRacaActionPerformed
+
+    private void miConsultarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miConsultarPessoaActionPerformed
+        ConsultaPessoa consultaPessoaView = new ConsultaPessoa();
+        consultaPessoaView.setVisible(true);
+    }//GEN-LAST:event_miConsultarPessoaActionPerformed
 
     /**
      * @param args the command line arguments

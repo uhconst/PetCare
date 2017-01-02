@@ -121,9 +121,11 @@ public class Pessoa{
     public void setCpf( String cpf ){
         /*
          * Usando RegEx para salvar o cpf sem a mascara do
-         * JFormatedTextField.
+         * JFormatedTextField. Usando Trim para tirar os epaços quando
+         * não pesquisa o CPF inteiro.
          */
-        this.cpf = cpf.replaceAll("[.-]", "");
+        System.out.print("\nCPF no Domain com RegEx: " + cpf.replaceAll("[.-]", "").trim() );
+        this.cpf = cpf.replaceAll("[.-]", "").trim();
     }
 
     public String getCep(){

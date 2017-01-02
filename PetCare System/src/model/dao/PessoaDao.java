@@ -38,16 +38,26 @@ public class PessoaDao{
     
     public List<Pessoa> pesquisar(Pessoa pessoa) {
         EntityManager em = Conexao.getEntityManager();
-        StringBuilder sql = new StringBuilder("from Pessoa c "
+        StringBuilder sql = new StringBuilder("from Pessoa p "
                 + "where 1 = 1 ");
         if (pessoa.getId() !=null) {
-            sql.append("and c.id = :id_pessoa ");
+            sql.append("and p.id = :id_pessoa ");
         }
         if (pessoa.getNome() !=null &&
                 !pessoa.getNome().equals("")){
-            sql.append("and c.nome like :nome");
-            
+            sql.append("and LOWER(p.nome) like '%'||LOWER(:nome)||'%' ");
         }
+        if (pessoa.getSobrenome() !=null &&
+                !pessoa.getSobrenome().equals("")){
+            sql.append("and LOWER(p.sobrenome) like '%'||LOWER(:sobrenome)||'%' ");
+        }
+        
+        if (pessoa.getCpf() !=null &&
+                !pessoa.getCpf().equals("")){
+            System.out.print("\nCPF no Dao: " + pessoa.getCpf());
+            sql.append("and p.cpf like '%'||:cpf||'%'");
+        }        
+        
         Query query = em.createQuery(sql.toString());
         if (pessoa.getId() !=null) {
             query.setParameter("id_pessoa",pessoa.getId());
@@ -57,6 +67,15 @@ public class PessoaDao{
                 !pessoa.getNome().equals("")){
             query.setParameter("nome","%"+pessoa.getNome());
         }
+        if (pessoa.getSobrenome() != null &&
+                !pessoa.getSobrenome().equals("")){
+            query.setParameter("sobrenome","%"+pessoa.getSobrenome());
+        }
+        if (pessoa.getCpf() != null &&
+                !pessoa.getCpf().equals("")){
+            query.setParameter("cpf","%"+pessoa.getCpf());
+        }
+        
         return query.getResultList();
     }
     
