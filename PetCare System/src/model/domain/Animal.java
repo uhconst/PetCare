@@ -66,6 +66,10 @@ public class Animal{
         return raca;
     }
 
+    public String getNomeRaca(){
+        return (raca.getRaca());
+    }
+        
     public void setRaca( Raca raca ){
         this.raca = raca;
     }

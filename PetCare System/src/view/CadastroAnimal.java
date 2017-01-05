@@ -7,6 +7,7 @@ package view;
 
 import control.AnimalControl;
 import control.PessoaControl;
+import control.RacaControl;
 import javax.swing.JOptionPane;
 import model.domain.Pessoa;
 
@@ -17,6 +18,7 @@ import model.domain.Pessoa;
 public class CadastroAnimal extends javax.swing.JInternalFrame{
 
     private static AnimalControl animalControl = new AnimalControl();
+
     /**
      * Creates new form CadastroAnimal
      */
@@ -34,6 +36,11 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         animalControl.setProprietario(pessoaControl.getPessoaSelecionado()); 
         txtProprietario.setText(animalControl.getNomeProprietario());
         //animalControl.testPodeApagar();
+    }
+        
+    static void setRaca( RacaControl racaControl ){
+        animalControl.setRaca(racaControl.getRacaSelecionado()); 
+        txtRaca.setText(animalControl.getNomeRaca());
     }
         
 /*
@@ -215,7 +222,8 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRacaActionPerformed
-        // TODO add your handling code here:
+        ConsultaRaca consultaRacaView = new ConsultaRaca();
+        consultaRacaView.setVisible(true);
     }//GEN-LAST:event_btnRacaActionPerformed
 
     private void btnProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProprietarioActionPerformed
@@ -238,7 +246,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     private javax.swing.JLabel lblSexo;
     private javax.swing.JTextField txtNomeDoAnimal;
     private static javax.swing.JTextField txtProprietario;
-    private javax.swing.JTextField txtRaca;
+    private static javax.swing.JTextField txtRaca;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
 }
