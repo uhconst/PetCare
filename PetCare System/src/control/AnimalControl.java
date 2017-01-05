@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.dao.AnimalDao;
 import model.domain.Animal;
+import model.domain.Pessoa;
 import org.jdesktop.observablecollections.ObservableCollections;
 
 /**
@@ -85,7 +86,14 @@ public class AnimalControl{
     public void setAnimalsTabela( List<Animal> animalsTabela ){
         this.animalsTabela = animalsTabela;
     }
- 
+
+    public void setProprietario( Pessoa pessoaSelecionado ){
+        animalDigitado.setPessoa(pessoaSelecionado);
+    }
+    
+    public String getNomeProprietario(){
+        return animalDigitado.getNomeCompletoPessoa();
+    }
      public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );
     }
@@ -93,4 +101,8 @@ public class AnimalControl{
     public void removePropertyChangeListener(PropertyChangeListener e) {
         propertyChangeSupport.removePropertyChangeListener(e);
     }
+    
+ /*   public void testPodeApagar(){
+        System.out.println("Pessoa digitada dentro da classe animal: "+animalDigitado.);
+    }*/
 }

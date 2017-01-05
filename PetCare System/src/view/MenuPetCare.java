@@ -32,7 +32,7 @@ public class MenuPetCare extends javax.swing.JFrame{
         fmCadastrar = new javax.swing.JMenu();
         miCadastrarPessoa = new javax.swing.JMenuItem();
         miCadastrarRaca = new javax.swing.JMenuItem();
-        saveAsMenuItem = new javax.swing.JMenuItem();
+        miCadastrarAnimal = new javax.swing.JMenuItem();
         exitMenuItem = new javax.swing.JMenuItem();
         fmConsultar = new javax.swing.JMenu();
         miConsultarPessoa = new javax.swing.JMenuItem();
@@ -68,9 +68,14 @@ public class MenuPetCare extends javax.swing.JFrame{
         });
         fmCadastrar.add(miCadastrarRaca);
 
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("XXXXX");
-        fmCadastrar.add(saveAsMenuItem);
+        miCadastrarAnimal.setMnemonic('a');
+        miCadastrarAnimal.setText("Animal");
+        miCadastrarAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miCadastrarAnimalActionPerformed(evt);
+            }
+        });
+        fmCadastrar.add(miCadastrarAnimal);
 
         exitMenuItem.setMnemonic('x');
         exitMenuItem.setText("XXXX");
@@ -123,11 +128,13 @@ public class MenuPetCare extends javax.swing.JFrame{
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 897, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1106, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 574, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 638, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 117, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,6 +168,14 @@ public class MenuPetCare extends javax.swing.JFrame{
         ConsultaPessoa consultaPessoaView = new ConsultaPessoa();
         consultaPessoaView.setVisible(true);
     }//GEN-LAST:event_miConsultarPessoaActionPerformed
+
+    private void miCadastrarAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miCadastrarAnimalActionPerformed
+        /* Close previous dektopPane added before */
+        closeAllDesktopPane();
+        CadastroAnimal cadastroAnimalView = new CadastroAnimal();
+        cadastroAnimalView.setVisible(true);
+        this.desktopPane.add(cadastroAnimalView);
+    }//GEN-LAST:event_miCadastrarAnimalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,11 +223,11 @@ public class MenuPetCare extends javax.swing.JFrame{
     private javax.swing.JMenu fmConsultar;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem miCadastrarAnimal;
     private javax.swing.JMenuItem miCadastrarPessoa;
     private javax.swing.JMenuItem miCadastrarRaca;
     private javax.swing.JMenuItem miConsultarPessoa;
     private javax.swing.JMenuItem pasteMenuItem;
-    private javax.swing.JMenuItem saveAsMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }

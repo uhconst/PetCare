@@ -6,7 +6,9 @@
 package view;
 
 import control.AnimalControl;
+import control.PessoaControl;
 import javax.swing.JOptionPane;
+import model.domain.Pessoa;
 
 /**
  *
@@ -14,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class CadastroAnimal extends javax.swing.JInternalFrame{
 
-    private final AnimalControl animalControl = new AnimalControl();
+    private static AnimalControl animalControl = new AnimalControl();
     /**
      * Creates new form CadastroAnimal
      */
@@ -25,7 +27,21 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     public AnimalControl getAnimalControl(){
         return animalControl;
     }
-
+    
+    
+    static void setProprietario( PessoaControl pessoaControl ){
+        pessoaControl.testPodeApagar();
+        animalControl.setProprietario(pessoaControl.getPessoaSelecionado()); 
+        txtProprietario.setText(animalControl.getNomeProprietario());
+        //animalControl.testPodeApagar();
+    }
+        
+/*
+    public static void setAnimalControl( AnimalControl animalControl ){
+        CadastroAnimal.animalControl = animalControl;
+    }
+*/
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,9 +78,25 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
 
         lblSexo.setText("Sexo");
 
+        txtProprietario.setEditable(false);
+        txtProprietario.setBackground(new java.awt.Color(204, 204, 204));
+
+        txtRaca.setEditable(false);
+        txtRaca.setBackground(new java.awt.Color(204, 204, 204));
+
         btnProprietario.setText("Proprietario");
+        btnProprietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProprietarioActionPerformed(evt);
+            }
+        });
 
         btnRaca.setText("Raça");
+        btnRaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRacaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,6 +214,15 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
             JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSalvarActionPerformed
 
+    private void btnRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRacaActionPerformed
+
+    private void btnProprietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProprietarioActionPerformed
+        ConsultaPessoa consultaPessoaView = new ConsultaPessoa();
+        consultaPessoaView.setVisible(true);
+    }//GEN-LAST:event_btnProprietarioActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
@@ -196,7 +237,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     private javax.swing.JLabel lblRaca;
     private javax.swing.JLabel lblSexo;
     private javax.swing.JTextField txtNomeDoAnimal;
-    private javax.swing.JTextField txtProprietario;
+    private static javax.swing.JTextField txtProprietario;
     private javax.swing.JTextField txtRaca;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables

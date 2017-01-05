@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -28,6 +29,10 @@ public class Animal{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="ID_ANIMAL")
     private Integer id;
+    
+    @ManyToOne
+    @JoinColumn(name = "ID_PESSOA")
+    private Pessoa pessoa;
     
     @OneToOne
     @JoinColumn(name = "ID_RACA")
@@ -47,6 +52,16 @@ public class Animal{
         this.id = id;
     }
 
+    public Pessoa getPessoa(){
+        return pessoa;
+    }
+    public String getNomeCompletoPessoa(){
+        return (pessoa.getNome() + " " + pessoa.getSobrenome());
+    }
+    public void setPessoa( Pessoa pessoa ){
+        this.pessoa = pessoa;
+    }
+    
     public Raca getRaca(){
         return raca;
     }

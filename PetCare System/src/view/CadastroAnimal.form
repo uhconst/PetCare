@@ -130,8 +130,23 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtProprietario">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JTextField" name="txtRaca">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtNomeDoAnimal">
         </Component>
@@ -141,11 +156,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Proprietario"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProprietarioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnRaca">
           <Properties>
             <Property name="text" type="java.lang.String" value="Ra&#xe7;a"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRacaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

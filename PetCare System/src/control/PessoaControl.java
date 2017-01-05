@@ -59,6 +59,7 @@ public class PessoaControl{
     }
 
     public Pessoa getPessoaDigitado(){
+        System.out.println("\nPessoaDigitada: "+ pessoaDigitado.getNome() );
         return pessoaDigitado;
     }
 
@@ -69,6 +70,7 @@ public class PessoaControl{
     }
 
     public Pessoa getPessoaSelecionado(){
+        //System.out.println("\nPessoaSelecionada: "+ pessoaSelecionado.getNome() );
         return pessoaSelecionado;
     }
 
@@ -93,5 +95,9 @@ public class PessoaControl{
     
     public void removePropertyChangeListener(PropertyChangeListener e) {
         propertyChangeSupport.removePropertyChangeListener(e);
+    }
+    
+    public void testPodeApagar(){
+        System.out.println("Pessoa selecionada dentro da classe pessoa: "+pessoaSelecionado.getNome());
     }
 }
