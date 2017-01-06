@@ -80,7 +80,28 @@ public class RacaControl{
     public List<Raca> getRacasTabela(){
         return racasTabela;
     }
-
+    
+    /*
+     * Se a racaSelecionado nao for null, entao esta atualizando.
+     * Caso esteja vazio, esta salvando
+    */
+    public int checkAtualizandoOuSalvando(){
+        if(racaSelecionado!=null){
+            System.out.println("\nRaça selecionada NAO é null!");
+            return 1;
+        }
+        else{
+            System.out.println("\nRaça selecionada é null!");
+            return 0;
+        }
+        
+      /*  
+        if(racaDigitado.getId()!=null){
+            return 1;
+        }
+        return 0;*/
+    }
+    
     public void setRacasTabela( List<Raca> racasTabela ){
         this.racasTabela = racasTabela;
     }
