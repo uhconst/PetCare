@@ -58,6 +58,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jPanel1 = new javax.swing.JPanel();
         lblProprietario = new javax.swing.JLabel();
@@ -67,9 +68,9 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         txtProprietario = new javax.swing.JTextField();
         txtRaca = new javax.swing.JTextField();
         txtNomeDoAnimal = new javax.swing.JTextField();
-        txtSexo = new javax.swing.JTextField();
         btnProprietario = new javax.swing.JButton();
         btnRaca = new javax.swing.JButton();
+        cbSexo = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnSalvar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
@@ -91,6 +92,9 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         txtRaca.setEditable(false);
         txtRaca.setBackground(new java.awt.Color(204, 204, 204));
 
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalDigitado.nome}"), txtNomeDoAnimal, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
         btnProprietario.setText("Proprietario");
         btnProprietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +109,11 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
             }
         });
 
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Femea" }));
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalDigitado.sexo}"), cbSexo, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        bindingGroup.addBinding(binding);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,15 +126,17 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
                     .addComponent(lblNomeDoAnimal)
                     .addComponent(lblSexo))
                 .addGap(59, 59, 59)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtProprietario, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                    .addComponent(txtNomeDoAnimal))
-                .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnProprietario)
-                    .addComponent(btnRaca))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtProprietario, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(txtNomeDoAnimal))
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnProprietario)
+                            .addComponent(btnRaca)))
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,7 +159,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -181,7 +192,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
+                .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
                     .addComponent(btnLimpar)
@@ -209,6 +220,8 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,6 +251,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     private javax.swing.JButton btnProprietario;
     private javax.swing.JButton btnRaca;
     private javax.swing.JButton btnSalvar;
+    private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblNomeDoAnimal;
@@ -247,6 +261,6 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     private javax.swing.JTextField txtNomeDoAnimal;
     private static javax.swing.JTextField txtProprietario;
     private static javax.swing.JTextField txtRaca;
-    private javax.swing.JTextField txtSexo;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
