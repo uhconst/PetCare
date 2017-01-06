@@ -91,6 +91,11 @@ public class CadastroRaca extends javax.swing.JInternalFrame{
         btnCancelar.setText("Cancelar");
 
         btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
 
         btnDeletar.setText("Deletar");
         btnDeletar.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +239,10 @@ public class CadastroRaca extends javax.swing.JInternalFrame{
                 "Excluir Raça", JOptionPane.INFORMATION_MESSAGE );
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        racaControl.pesquisar();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

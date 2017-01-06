@@ -44,7 +44,7 @@ public class RacaDao{
         }
         if (raca.getRaca() !=null &&
                 !raca.getRaca().equals("")){
-            sql.append("and r.raca like :raca");
+            sql.append("and LOWER(r.raca) like '%'||LOWER(:raca)||'%'");
             
         }
         Query query = em.createQuery(sql.toString());
