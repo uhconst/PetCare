@@ -87,6 +87,11 @@ public class CadastroRaca extends javax.swing.JInternalFrame{
         });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -243,6 +248,17 @@ public class CadastroRaca extends javax.swing.JInternalFrame{
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         racaControl.pesquisar();
     }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        tblRaca.clearSelection();
+        
+        //txtRaca.setText("");
+        
+        // Pesquisando novamente porque senao ele limpa os dados da tabela
+        // tambem. Porque estao vinculados com os textFields.
+        racaControl.novo();
+        racaControl.pesquisar();
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
