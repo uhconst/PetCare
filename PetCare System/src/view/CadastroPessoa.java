@@ -210,6 +210,11 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -510,6 +515,10 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     private void chbPrincipalEmailStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chbPrincipalEmailStateChanged
         emailControl.setPrincipal( chbPrincipalEmail.isSelected() );
     }//GEN-LAST:event_chbPrincipalEmailStateChanged
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -94,6 +94,7 @@ public class AnimalControl{
     
     public void setRaca( Raca racaSelecionado ){
         animalDigitado.setRaca(racaSelecionado);
+        //setAnimalDigitado( animalDigitado );
     }
     
     public String getNomeProprietario(){

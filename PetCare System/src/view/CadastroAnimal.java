@@ -189,6 +189,11 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         });
 
         btnLimpar.setText("Limpar");
+        btnLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimparActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -364,6 +369,21 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
             "Excluir Animal", JOptionPane.INFORMATION_MESSAGE );
         }
     }//GEN-LAST:event_btnDeletarActionPerformed
+
+    private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
+        tblAnimal.clearSelection();
+        
+        txtProprietario.setText("");
+        txtRaca.setText("");
+        txtNomeDoAnimal.setText("");
+        
+        // Pesquisando novamente porque senao ele limpa os dados da tabela
+        // tambem. Porque estao vinculados com os textFields.
+        animalControl.novo();
+        animalControl.pesquisar();
+        
+        txtProprietario.setText("");
+    }//GEN-LAST:event_btnLimparActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
