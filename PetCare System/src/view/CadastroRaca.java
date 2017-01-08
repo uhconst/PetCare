@@ -252,7 +252,7 @@ public class CadastroRaca extends javax.swing.JInternalFrame{
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         tblRaca.clearSelection();
         
-        //txtRaca.setText("");
+        txtRaca.setText("");
         
         // Pesquisando novamente porque senao ele limpa os dados da tabela
         // tambem. Porque estao vinculados com os textFields.
