@@ -45,7 +45,7 @@ public class AnimalDao{
         }
         if (animal.getNome() !=null &&
                 !animal.getNome().equals("")){
-            sql.append("and a.nome like :nome");
+            sql.append("and LOWER(a.nome) like '%'||LOWER(:nome)||'%'");
             
         }
         Query query = em.createQuery(sql.toString());
