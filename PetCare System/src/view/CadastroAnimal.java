@@ -30,14 +30,19 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         return animalControl;
     }
     
-    
+    /*
+     * Setando a raça que foi selecionada na view ConsultaPessoa.
+    */
     static void setProprietario( PessoaControl pessoaControl ){
         pessoaControl.testPodeApagar();
         animalControl.setProprietario(pessoaControl.getPessoaSelecionado()); 
         txtProprietario.setText(animalControl.getNomeProprietario());
         //animalControl.testPodeApagar();
     }
-        
+    
+    /*
+     * Setando a raça que foi selecionada na view ConsultaRaca.
+    */
     static void setRaca( RacaControl racaControl ){
         animalControl.setRaca(racaControl.getRacaSelecionado()); 
         txtRaca.setText(animalControl.getNomeRaca());
@@ -75,6 +80,11 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         btnSalvar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnPesquisar = new javax.swing.JButton();
+        btnDeletar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAnimal = new javax.swing.JTable();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -89,10 +99,16 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         txtProprietario.setEditable(false);
         txtProprietario.setBackground(new java.awt.Color(204, 204, 204));
 
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalDigitado.pessoa.nome} ${animalControl.animalDigitado.pessoa.sobrenome}"), txtProprietario, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
         txtRaca.setEditable(false);
         txtRaca.setBackground(new java.awt.Color(204, 204, 204));
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalDigitado.nome}"), txtNomeDoAnimal, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalDigitado.raca.raca}"), txtRaca, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalDigitado.nome}"), txtNomeDoAnimal, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
         btnProprietario.setText("Proprietario");
@@ -160,7 +176,7 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSexo)
                     .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -176,28 +192,96 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
 
         btnCancelar.setText("Cancelar");
 
+        btnPesquisar.setText("Pesquisar");
+        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarActionPerformed(evt);
+            }
+        });
+
+        btnDeletar.setText("Deletar");
+        btnDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeletarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(96, 96, 96)
+                .addGap(33, 33, 33)
                 .addComponent(btnSalvar)
-                .addGap(61, 61, 61)
+                .addGap(152, 152, 152)
                 .addComponent(btnLimpar)
-                .addGap(67, 67, 67)
+                .addGap(39, 39, 39)
                 .addComponent(btnCancelar)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(btnDeletar)
+                .addContainerGap(81, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(136, 136, 136)
+                    .addComponent(btnPesquisar)
+                    .addContainerGap(464, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
                     .addComponent(btnLimpar)
-                    .addComponent(btnCancelar))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnDeletar))
                 .addGap(32, 32, 32))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addComponent(btnPesquisar)
+                    .addContainerGap(28, Short.MAX_VALUE)))
+        );
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        org.jdesktop.beansbinding.ELProperty eLProperty = org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalsTabela}");
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, eLProperty, tblAnimal);
+        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${id}"));
+        columnBinding.setColumnName("Id");
+        columnBinding.setColumnClass(Integer.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
+        columnBinding.setColumnName("Nome");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${pessoa.nome} ${pessoa.sobrenome}"));
+        columnBinding.setColumnName("Pessoa");
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${raca.raca}"));
+        columnBinding.setColumnName("Raca");
+        columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${sexo}"));
+        columnBinding.setColumnName("Sexo");
+        columnBinding.setColumnClass(String.class);
+        bindingGroup.addBinding(jTableBinding);
+        jTableBinding.bind();binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${animalControl.animalSelecionado}"), tblAnimal, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
+        bindingGroup.addBinding(binding);
+
+        jScrollPane1.setViewportView(tblAnimal);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,17 +291,20 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -227,11 +314,31 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // Chama a função para verificar se está atualizando ou salvando
+        if( animalControl.checkAtualizandoOuSalvando() == 1 )
+        {
+            if(JOptionPane.showConfirmDialog( this, 
+                        "Deseja realmente atualizar essa animal?",
+                        "Atualizar Animal", JOptionPane.YES_NO_OPTION) ==
+                        JOptionPane.YES_OPTION){
+                animalControl.salvar();
+                JOptionPane.showMessageDialog( this, 
+                            "Animal atualizado com sucesso!",
+                            "Atualizar Animal", JOptionPane.INFORMATION_MESSAGE );    
+            }
+
+        }
+        else{
+            animalControl.salvar();
+            JOptionPane.showMessageDialog( this, "Animal salvo com sucesso!",
+                "Salvar Animal", JOptionPane.INFORMATION_MESSAGE );
+        }
+        /*
         animalControl.salvar();
         JOptionPane.showMessageDialog(this,
             "Animal salvo com sucesso",
             "Salvar animal",
-            JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.INFORMATION_MESSAGE);*/
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRacaActionPerformed
@@ -244,20 +351,39 @@ public class CadastroAnimal extends javax.swing.JInternalFrame{
         consultaPessoaView.setVisible(true);
     }//GEN-LAST:event_btnProprietarioActionPerformed
 
+    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
+        animalControl.pesquisar();
+    }//GEN-LAST:event_btnPesquisarActionPerformed
+
+    private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed
+        if(JOptionPane.showConfirmDialog( this, "Deseja realmente excluir essa animal?",
+            "Excluir raça", JOptionPane.YES_NO_OPTION) ==
+        JOptionPane.YES_OPTION){
+        animalControl.excluir();
+        JOptionPane.showMessageDialog( this, "Animal excluido com sucesso!",
+            "Excluir Animal", JOptionPane.INFORMATION_MESSAGE );
+        }
+    }//GEN-LAST:event_btnDeletarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnDeletar;
     private javax.swing.JButton btnLimpar;
+    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnProprietario;
     private javax.swing.JButton btnRaca;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNomeDoAnimal;
     private javax.swing.JLabel lblProprietario;
     private javax.swing.JLabel lblRaca;
     private javax.swing.JLabel lblSexo;
+    private javax.swing.JTable tblAnimal;
     private javax.swing.JTextField txtNomeDoAnimal;
     private static javax.swing.JTextField txtProprietario;
     private static javax.swing.JTextField txtRaca;

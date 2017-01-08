@@ -87,11 +87,11 @@ public class RacaControl{
     */
     public int checkAtualizandoOuSalvando(){
         if(racaSelecionado!=null){
-            System.out.println("\nRaça selecionada NAO é null!");
+            //System.out.println("\nRaça selecionada NAO é null!");
             return 1;
         }
         else{
-            System.out.println("\nRaça selecionada é null!");
+            //System.out.println("\nRaça selecionada é null!");
             return 0;
         }
         

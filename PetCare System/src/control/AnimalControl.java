@@ -104,6 +104,21 @@ public class AnimalControl{
         return animalDigitado.getNomeRaca();
     }
         
+   /*
+     * Se a animalSelecionado nao for null, entao esta atualizando.
+     * Caso esteja vazio, esta salvando
+    */
+    public int checkAtualizandoOuSalvando(){
+        if(animalSelecionado!=null){
+            // Atualizando
+            return 1;
+        }
+        else{
+            // Salvando
+            return 0;
+        }
+    }
+        
      public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );
     }
@@ -111,10 +126,4 @@ public class AnimalControl{
     public void removePropertyChangeListener(PropertyChangeListener e) {
         propertyChangeSupport.removePropertyChangeListener(e);
     }
-    
- /*   public void testPodeApagar(){
-        System.out.println("Pessoa digitada dentro da classe animal: "+animalDigitado.);
-    }*/
-
-
 }
