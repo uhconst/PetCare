@@ -5,12 +5,14 @@
  */
 package model.domain;
 
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -55,11 +57,20 @@ public class Pessoa{
 */
     // REMOVI O RG, REMOVER NA MODELAGEM
     
+    
     @Column(name="CPF")
     private String cpf;
     
     @Column(name="CEP")
     private String cep;
+    
+    @OneToMany(mappedBy = "pessoa")
+    private List<Email> emails;
+    
+    @OneToMany(mappedBy = "pessoa")
+    private List<Telefone> telefones;
+    
+    //private String allEmails;
     
     public Pessoa(){
 
@@ -97,23 +108,7 @@ public class Pessoa{
         //System.out.println("\nDentro do domain, date como foi recebida:" + nascimento);
         this.nascimento = nascimento;
     }
-/*
-    public Email getEmail(){
-        return email;
-    }
 
-    public void setEmail( Email email ){
-        this.email = email;
-    }
-
-    public Telefone getTelefone(){
-        return telefone;
-    }
-
-    public void setTelefone( Telefone telefone ){
-        this.telefone = telefone;
-    }
-*/
     public String getCpf(){
         return cpf;
     }
@@ -140,6 +135,38 @@ public class Pessoa{
         this.cep = cep.replaceAll("[-]", "");
     }
 
+    public List<Email> getEmails(){
+        return emails;
+    }
+
+    public void setEmails( List<Email> emails ){
+        this.emails = emails;
+        //setAllEmails( this.emails.get( 0 ).getEndereco_email());
+    }
+
+    public List<Telefone> getTelefones(){
+        return telefones;
+    }
+
+    public void setTelefones( List<Telefone> telefones ){
+        this.telefones = telefones;
+    }
+/*
+    
+    public void setAllEmails( String allEmails ){
+        this.allEmails = allEmails;
+    }
+
+    public String getAllEmails(){
+        return allEmails;
+    }
+    */
+ /*   
+    public String getAllEmails(){
+        //System.out.println("\n*********Email list 0: " + 
+          //                  emails.get( 0 ).getEndereco_email() + "*********");
+        return (emails.get( 0 ).getEndereco_email());
+    }*/
     @Override
     public int hashCode(){
         int hash = 7;

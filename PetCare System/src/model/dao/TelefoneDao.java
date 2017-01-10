@@ -26,13 +26,22 @@ public class TelefoneDao{
         em.close();
     }
     
-    public void excluir(Telefone telefone) {
+    public void excluir(List<Telefone> listaTelefones) {
+        for (Telefone telefone : listaTelefones) {
+            EntityManager em = Conexao.getEntityManager();
+            em.getTransaction().begin();
+            telefone = em.merge(telefone);
+            em.remove(telefone);
+            em.getTransaction().commit();
+            em.close();
+        }
+        /*
         EntityManager em = Conexao.getEntityManager();
         em.getTransaction().begin();
         telefone = em.merge(telefone);
         em.remove(telefone);
         em.getTransaction().commit();
-        em.close();
+        em.close();*/
     }
     
     public List<Telefone> pesquisar(Telefone telefone) {

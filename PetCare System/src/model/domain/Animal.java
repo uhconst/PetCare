@@ -66,6 +66,13 @@ public class Animal{
         return raca;
     }
 
+    /*
+     * Para usar no AnimalDao, quando for pesquisar pela raça.
+    *//*
+    public Integer getIdRaca(){
+        return raca.getId();
+    }*/
+        
     public String getNomeRaca(){
         return (raca.getRaca());
     }

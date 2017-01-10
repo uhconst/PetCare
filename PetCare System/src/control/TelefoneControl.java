@@ -52,10 +52,10 @@ public class TelefoneControl{
         pesquisar();
     }
     
-    public void excluir(){
-        telefoneDao.excluir( telefoneSelecionado );
-        novo();
-        pesquisar();
+    public void excluir(List<Telefone> listaTelefones){
+        telefoneDao.excluir( listaTelefones );
+        //novo();
+        //pesquisar();
     }
     
     public void novo(){

@@ -10,7 +10,9 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 import java.util.List;
 import model.dao.PessoaDao;
+import model.domain.Email;
 import model.domain.Pessoa;
+import model.domain.Telefone;
 import org.jdesktop.observablecollections.ObservableCollections;
 
 /**
@@ -49,6 +51,14 @@ public class PessoaControl{
     }
     
     public void excluir(){
+        /* Setando os Telefones e emails como null, pq senão ao excluir
+         * primeiro o telefone, e email, quando exclui a pessoa ele ta vinculado
+         * a um telefone email não mais existente, caindo em uma excpetion e só
+         * não excluia a Pessoa. Setando como Null antes resolve o problema.
+        */
+        pessoaSelecionado.setEmails( null);
+        pessoaSelecionado.setTelefones( null);
+        
         pessoaDao.excluir( pessoaSelecionado );
         novo();
         pesquisar();
@@ -59,7 +69,7 @@ public class PessoaControl{
     }
 
     public Pessoa getPessoaDigitado(){
-        System.out.println("\nPessoaDigitada: "+ pessoaDigitado.getNome() );
+        //System.out.println("\nPessoaDigitada: "+ pessoaDigitado.getNome() );
         return pessoaDigitado;
     }
 
@@ -81,6 +91,11 @@ public class PessoaControl{
         }
     }
 
+    //test
+    /*public void teste(){
+        //test
+        //this.pessoaSelecionado.getAllEmails();
+    }*/
     public List<Pessoa> getPessoasTabela(){
         return pessoasTabela;
     }
@@ -88,7 +103,19 @@ public class PessoaControl{
     public void setPessoasTabela( List<Pessoa> pessoasTabela ){
         this.pessoasTabela = pessoasTabela;
     }
- 
+    
+    /*
+     * Retorna a lista de emails associada a pessoa que estara
+     * sendo excluida. Para assim excluir os emails tambem.
+    */
+    public List<Email> getEmailList(){
+        return pessoaSelecionado.getEmails();
+    }
+    
+    public List<Telefone> getTelefoneList(){
+        return pessoaSelecionado.getTelefones();
+    }
+    
      public void addPropertyChangeListener(PropertyChangeListener e){
         propertyChangeSupport.addPropertyChangeListener( e );
     }

@@ -48,10 +48,10 @@ public class EmailControl{
         pesquisar();
     }
     
-    public void excluir(){
-        emailDao.excluir( emailSelecionado );
-        novo();
-        pesquisar();
+    public void excluir(List<Email> listaEmails){
+        emailDao.excluir( listaEmails );
+        //novo();
+        //pesquisar();
     }
     
     public void novo(){
