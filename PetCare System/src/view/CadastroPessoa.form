@@ -646,8 +646,8 @@
                     <BindingParameter name="NAME" value="Cpf"/>
                     <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
                   </Subbinding>
-                  <Subbinding sourcePath="${allEmails}">
-                    <BindingParameter name="NAME" value="All Emails"/>
+                  <Subbinding sourcePath="${emails.get(0).endereco_email}">
+                    <BindingParameter name="NAME" value="Emails"/>
                     <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
                   </Subbinding>
                 </BindingProperty>

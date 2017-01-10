@@ -49,12 +49,15 @@ public class AnimalDao{
             
         }
         if (animal.getRaca()!=null){
-            sql.append("and a.id_raca = :id_raca");
+            sql.append("and a.raca = :raca");
             //sql.append("and a.id_raca = "+animal.getRaca());
             //sql.append( "and a.id_raca = " ).append(Integer.toString(animal.getRaca().getId()));
             //(Integer.toString(animal.getRaca().getId()));
         }
-                
+        
+        if (animal.getPessoa()!=null){
+            sql.append("and a.pessoa = :pessoa");
+        }                
         Query query = em.createQuery(sql.toString());
         if (animal.getId() !=null) {
             query.setParameter("id_animal",animal.getId());
@@ -64,7 +67,10 @@ public class AnimalDao{
             query.setParameter("nome","%"+animal.getNome());
         }
         if (animal.getRaca() != null){
-            query.setParameter("id_raca",(animal.getRaca().getId()));
+            query.setParameter("raca",(animal.getRaca()));
+        }
+        if (animal.getPessoa() != null){
+            query.setParameter("pessoa",(animal.getPessoa()));
         }
         /*
         if (animal.getRaca() != null){
