@@ -37,26 +37,17 @@ public class Email{
     @JoinColumn(name = "ID_PESSOA")
     @ManyToOne
     private Pessoa pessoa;
-    /*@OneToMany
-    @JoinTable(name="EMAIL_PESSOA", joinColumns=@JoinColumn(name="EMAIL_ID"), 
-                inverseJoinColumns=@JoinColumn(name="PESSOA_ID"))*/
-    //private Collection<Pessoa> pessoa = new ArrayList<Pessoa>();
-  
-    /*
-    @ManyToOne
-    @JoinColumn(name = "ID_TIPO_CONTATO")
-    private Tipo_Contato tipo_contato;*/
     
     // MUDAR NA MODELAGEM DE "EMAIL" PARA "ENDERECO_EMAIL"
     @Column(name="ENDERECO_EMAIL")
     private String endereco_email;
-    
+  /*  
     @Column(name="PRINCIPAL")
-    private String principal;
-    
+    private String principal;*/
+/*    
     @Column(name="TIPO_CONTATO")
     private String tipo_contato;
-        
+ */       
     public Email(){
         System.out.println("Dentro do construtor do email!!!");
     }
@@ -77,14 +68,6 @@ public class Email{
         this.pessoa = pessoa;
     }
 
-    /*
-    public Tipo_Contato getTipo_contato(){
-        return tipo_contato;
-    }
-
-    public void setTipo_contato( Tipo_Contato tipo_contato ){
-        this.tipo_contato = tipo_contato;
-    }*/
 
     public String getEndereco_email(){
         return endereco_email;
@@ -93,7 +76,7 @@ public class Email{
     public void setEndereco_email( String endereco_email ){
         this.endereco_email = endereco_email;
     }
-
+/*
     public String getPrincipal(){
         return principal;
     }
@@ -101,7 +84,9 @@ public class Email{
     public void setPrincipal( String principal ){
         this.principal = principal;
     }
-
+*/
+    
+/*    
     public String getTipo_contato(){
         return tipo_contato;
     }
@@ -109,7 +94,7 @@ public class Email{
     public void setTipo_contato( String tipo_contato ){
         this.tipo_contato = tipo_contato;
     }
-
+*/
     
     @Override
     public int hashCode(){

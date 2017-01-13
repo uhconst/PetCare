@@ -450,28 +450,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="lblPrincipalEmail" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="chbPrincipalEmail" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblTipoContatoEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtEmail" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="cbTipoContatoEmail" min="-2" pref="108" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                  </Group>
+                  <Component id="lblEmail" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="txtEmail" pref="238" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -483,16 +464,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="lblTipoContatoEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cbTipoContatoEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="lblPrincipalEmail" min="-2" max="-2" attributes="0"/>
-                      <Component id="chbPrincipalEmail" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -512,37 +483,6 @@
             </BindingProperty>
           </BindingProperties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblTipoContatoEmail">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de Contato"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="chbPrincipalEmail">
-          <Events>
-            <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="chbPrincipalEmailStateChanged"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblPrincipalEmail">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Principal"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cbTipoContatoEmail">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Pessoal"/>
-                <StringItem index="1" value="Profissional"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <BindingProperties>
-            <BindingProperty name="selectedItem" source="Form" sourcePath="${emailControl.emailDigitado.tipo_contato}" target="cbTipoContatoEmail" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
-          </BindingProperties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="jPanel5">
@@ -559,9 +499,9 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="224" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="124" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="106" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -579,11 +519,6 @@
               <Properties>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title/>
-                      <Editor/>
-                      <Renderer/>
-                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -644,10 +579,6 @@
                   </Subbinding>
                   <Subbinding sourcePath="${cpf}">
                     <BindingParameter name="NAME" value="Cpf"/>
-                    <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
-                  </Subbinding>
-                  <Subbinding sourcePath="${emails.get(0).endereco_email}">
-                    <BindingParameter name="NAME" value="Emails"/>
                     <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
                   </Subbinding>
                 </BindingProperty>

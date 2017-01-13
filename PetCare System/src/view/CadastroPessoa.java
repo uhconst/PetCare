@@ -98,10 +98,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         jPanel4 = new javax.swing.JPanel();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        lblTipoContatoEmail = new javax.swing.JLabel();
-        chbPrincipalEmail = new javax.swing.JCheckBox();
-        lblPrincipalEmail = new javax.swing.JLabel();
-        cbTipoContatoEmail = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPessoas = new javax.swing.JTable();
@@ -354,43 +350,15 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${emailControl.emailDigitado.endereco_email}"), txtEmail, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
-        lblTipoContatoEmail.setText("Tipo de Contato");
-
-        chbPrincipalEmail.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                chbPrincipalEmailStateChanged(evt);
-            }
-        });
-
-        lblPrincipalEmail.setText("Principal");
-
-        cbTipoContatoEmail.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pessoal", "Profissional" }));
-
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${emailControl.emailDigitado.tipo_contato}"), cbTipoContatoEmail, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
-        bindingGroup.addBinding(binding);
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(lblPrincipalEmail)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chbPrincipalEmail)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEmail)
-                            .addComponent(lblTipoContatoEmail))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(cbTipoContatoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 130, Short.MAX_VALUE)))))
+                .addComponent(lblEmail)
+                .addGap(73, 73, 73)
+                .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -400,14 +368,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTipoContatoEmail)
-                    .addComponent(cbTipoContatoEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPrincipalEmail)
-                    .addComponent(chbPrincipalEmail))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -431,9 +391,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpf}"));
         columnBinding.setColumnName("Cpf");
         columnBinding.setColumnClass(String.class);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${emails.get(0).endereco_email}"));
-        columnBinding.setColumnName("Emails");
-        columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pessoaControl.pessoaSelecionado}"), tblPessoas, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
         bindingGroup.addBinding(binding);
@@ -451,9 +408,9 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -522,13 +479,6 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         telefoneControl.setPrincipal( chbPrincipalTelefone.isSelected() );
     }//GEN-LAST:event_chbPrincipalTelefoneStateChanged
 
-    /*
-     * Check box mudou de estado. Seta o novo estado no EmailControl
-    */
-    private void chbPrincipalEmailStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_chbPrincipalEmailStateChanged
-        emailControl.setPrincipal( chbPrincipalEmail.isSelected() );
-    }//GEN-LAST:event_chbPrincipalEmailStateChanged
-
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimparActionPerformed
@@ -557,9 +507,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     private javax.swing.JButton btnLimpar;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbCategoria;
-    private javax.swing.JComboBox<String> cbTipoContatoEmail;
     private javax.swing.JComboBox<String> cbTipoContatoTelefone;
-    private javax.swing.JCheckBox chbPrincipalEmail;
     private javax.swing.JCheckBox chbPrincipalTelefone;
     private javax.swing.JFormattedTextField ftxtCep;
     private javax.swing.JFormattedTextField ftxtCpf;
@@ -578,11 +526,9 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblNascimento;
     private javax.swing.JLabel lblNome;
-    private javax.swing.JLabel lblPrincipalEmail;
     private javax.swing.JLabel lblPrincipalTelefone;
     private javax.swing.JLabel lblSobrenome;
     private javax.swing.JLabel lblTelefone;
-    private javax.swing.JLabel lblTipoContatoEmail;
     private javax.swing.JLabel lblTipoContatoTelefone;
     private javax.swing.JTable tblPessoas;
     private javax.swing.JTextField txtEmail;
