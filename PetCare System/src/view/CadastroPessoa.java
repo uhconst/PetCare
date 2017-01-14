@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 /**
  *
@@ -32,15 +34,22 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
      * Creates new form CadastroPessoa
      */
     public CadastroPessoa(){
-        initComponents();
-        //chbPrincipalTelefone.doClick();
-        
+        initComponents();        
         /*
          * O telefone 1 inicial como default selecionado, então já seta ele 
          * como selecionado.
         */
         telefoneControl.setPrincipal( chbPrincipalTelefone.isSelected() );
         telefoneControl2.setPrincipal( chbPrincipalTelefone2.isSelected() );
+        
+        tblPessoas.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent event) {
+                // do some actions here, for example
+                //txtEmail.setText( pessoaControl.getEmail() );
+                // print first column value from selected row
+                System.out.println("\ntabela selecionada: "+ tblPessoas.getValueAt(tblPessoas.getSelectedRow(), 0).toString());
+            }
+        });
     }
 
     public PessoaControl getPessoaControl(){
@@ -480,6 +489,9 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${cpf}"));
         columnBinding.setColumnName("Cpf");
         columnBinding.setColumnClass(String.class);
+        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${email.endereco_email}"));
+        columnBinding.setColumnName("Email");
+        columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pessoaControl.pessoaSelecionado}"), tblPessoas, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
         bindingGroup.addBinding(binding);
@@ -611,6 +623,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         }
         
     }//GEN-LAST:event_chbPrincipalTelefoneItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
