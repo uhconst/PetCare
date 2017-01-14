@@ -26,22 +26,22 @@ public class EmailDao{
         em.close();
     }
     
-    public void excluir(List<Email> listaEmails) {
-        for (Email email : listaEmails) {
+    public void excluir(Email email) {
+        /*for (Email email : listaEmails) {
             EntityManager em = Conexao.getEntityManager();
             em.getTransaction().begin();
             email = em.merge(email);
             em.remove(email);
             em.getTransaction().commit();
             em.close();
-        }
-        /*
+        }*/
+        
         EntityManager em = Conexao.getEntityManager();
         em.getTransaction().begin();
         email = em.merge(email);
         em.remove(email);
         em.getTransaction().commit();
-        em.close();*/
+        em.close();
     }
     
     public List<Email> pesquisar(Email email) {

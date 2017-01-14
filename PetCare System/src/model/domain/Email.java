@@ -35,7 +35,7 @@ public class Email{
     private Integer id;
    
     @JoinColumn(name = "ID_PESSOA")
-    @ManyToOne
+    @OneToOne
     private Pessoa pessoa;
     
     // MUDAR NA MODELAGEM DE "EMAIL" PARA "ENDERECO_EMAIL"

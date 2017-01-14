@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -63,12 +64,15 @@ public class Pessoa{
     
     @Column(name="CEP")
     private String cep;
-    
+ /*   
     @OneToMany(mappedBy = "pessoa")
     private List<Email> emails;
-    
+ */   
     @OneToMany(mappedBy = "pessoa")
     private List<Telefone> telefones;
+    
+    @OneToOne(mappedBy = "pessoa")
+    private Email email;
     
     //private String allEmails;
     
@@ -134,7 +138,7 @@ public class Pessoa{
          */
         this.cep = cep.replaceAll("[-]", "");
     }
-
+/*
     public List<Email> getEmails(){
         return emails;
     }
@@ -143,13 +147,21 @@ public class Pessoa{
         this.emails = emails;
         //setAllEmails( this.emails.get( 0 ).getEndereco_email());
     }
-
+*/
     public List<Telefone> getTelefones(){
         return telefones;
     }
 
     public void setTelefones( List<Telefone> telefones ){
         this.telefones = telefones;
+    }
+
+    public Email getEmail(){
+        return email;
+    }
+
+    public void setEmail( Email email ){
+        this.email = email;
     }
 /*
     

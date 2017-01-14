@@ -577,7 +577,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
             "Excluir raça", JOptionPane.YES_NO_OPTION) ==
             JOptionPane.YES_OPTION){
             
-            emailControl.excluir(pessoaControl.getEmailList());
+            emailControl.excluir(pessoaControl.getEmail());
             telefoneControl.excluir(pessoaControl.getTelefoneList());
             pessoaControl.excluir();
             JOptionPane.showMessageDialog( this, "Pessoa excluida com sucesso!",

@@ -56,7 +56,7 @@ public class PessoaControl{
          * a um telefone email não mais existente, caindo em uma excpetion e só
          * não excluia a Pessoa. Setando como Null antes resolve o problema.
         */
-        pessoaSelecionado.setEmails( null);
+        //pessoaSelecionado.setEmails( null);
         pessoaSelecionado.setTelefones( null);
         
         pessoaDao.excluir( pessoaSelecionado );
@@ -107,11 +107,19 @@ public class PessoaControl{
     /*
      * Retorna a lista de emails associada a pessoa que estara
      * sendo excluida. Para assim excluir os emails tambem.
-    */
+    *//*
     public List<Email> getEmailList(){
         return pessoaSelecionado.getEmails();
-    }
+    }*/
     
+    public Email getEmail(){
+        return pessoaSelecionado.getEmail();
+    }
+
+    /*
+     * Retorna a lista de telefones associada a pessoa que estara
+     * sendo excluida. Para assim excluir os telefones tambem.
+     */
     public List<Telefone> getTelefoneList(){
         return pessoaSelecionado.getTelefones();
     }
