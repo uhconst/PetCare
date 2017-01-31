@@ -65,6 +65,7 @@ public class EmailControl{
     public void setEmailDigitado( Email emailDigitado ){
         Email oldEmailDigitado = this.emailDigitado;
         this.emailDigitado = emailDigitado;
+        //System.out.println("\n******Email digitado: " + this.emailDigitado.getEndereco_email() +"****");
         propertyChangeSupport.firePropertyChange( "emailDigitado", oldEmailDigitado, emailDigitado);
     }
 
@@ -89,6 +90,7 @@ public class EmailControl{
     
     // Setando a pessoa que foi digitada e salva
     public void setPessoaDigitada( Pessoa pessoaDigitada ){
+        //System.out.println("\n******Email digitado na pessoaDigitada: " + emailDigitado.getPessoa().getEmail().getEndereco_email() +"****");
         emailDigitado.setPessoa( pessoaDigitada );
     }
 /*    

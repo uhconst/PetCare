@@ -77,7 +77,11 @@ public class Pessoa{
     //private String allEmails;
     
     public Pessoa(){
-
+        /*
+         * Criando nova pessoa, senao ele fica null ate ser selecionado
+         * na tabela. E quando só digitado da erro de null.
+         */
+        setEmail( new Email() );
     }
 
     public Integer getId(){
@@ -93,6 +97,7 @@ public class Pessoa{
     }
 
     public void setNome( String nome ){
+        //System.out.println("Nome digitado dentro da classe pessoa ao setar: "+nome);
         this.nome = nome;
     }
 
@@ -157,12 +162,24 @@ public class Pessoa{
     }
 
     public Email getEmail(){
+        //System.out.println("Email digitado dentro da classe pessoa: "+email.getEndereco_email());
         return email;
     }
 
     public void setEmail( Email email ){
+        //System.out.println("\n**********Email digitado dentro da classe pessoa para setar!!********** ");
+        //System.out.println("Email digitado dentro da classe pessoa ao setar: "+email.getEndereco_email());
         this.email = email;
     }
+    
+    /*
+     * Pra quando for salvar, se nao setar o email antes ele nao salva a pessoa
+     *//*
+    public void novoEmail(){
+        //System.out.println("\n**********Email digitado dentro da classe pessoa para setar!!********** ");
+        //System.out.println("Email digitado dentro da classe pessoa ao setar: "+email.getEndereco_email());
+        this.email = new Email();
+    }*/
 /*
     
     public void setAllEmails( String allEmails ){

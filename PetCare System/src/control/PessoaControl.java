@@ -44,8 +44,17 @@ public class PessoaControl{
     }
     
     public void salvar(){
-        System.out.println("\nBotao salvar, dendo do control, data: " + pessoaDigitado.getNascimento());
+        //System.out.println("\nBotao salvar, dendo do control, data: " + pessoaDigitado.getNascimento());
+        //pessoaDigitado.novoEmail();
+        
+        /*
+         * Tendo que setar o email como null primeiro, senão ele nao dava o
+         * commit no Dao.
+         */
+        pessoaDigitado.setEmail( null);
+        //pessoaSelecionado.setEmail( null); //testeee
         pessoaDao.salvarAtualizar( pessoaDigitado );
+        //pessoaDigitado.setEmail( new Email() ); //teste
         novo();
         pesquisar();
     }
@@ -117,6 +126,12 @@ public class PessoaControl{
     }
 
     /*
+     * Retorna o email digitado para Salvar() o email.
+     */
+    public Email getEmailDigitado(){
+        return pessoaDigitado.getEmail();
+    }
+    /*
      * Retorna a lista de telefones associada a pessoa que estara
      * sendo excluida. Para assim excluir os telefones tambem.
      */
@@ -133,6 +148,8 @@ public class PessoaControl{
     }
     
     public void testPodeApagar(){
-        System.out.println("Pessoa selecionada dentro da classe pessoa: "+pessoaSelecionado.getNome());
+        System.out.println("Email digitado dentro da classe pessoa: "+pessoaDigitado.getEmail().getEndereco_email());
+        //pessoaDigitado.getEmail();
+        //System.out.println("Pessoa digitado dentro da classe pessoa: "+pessoaDigitado.getNome());
     }
 }

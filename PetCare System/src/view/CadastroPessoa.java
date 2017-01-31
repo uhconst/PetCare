@@ -47,7 +47,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
                 // do some actions here, for example
                 //txtEmail.setText( pessoaControl.getEmail() );
                 // print first column value from selected row
-                System.out.println("\ntabela selecionada: "+ tblPessoas.getValueAt(tblPessoas.getSelectedRow(), 0).toString());
+                //System.out.println("\ntabela selecionada: "+ tblPessoas.getValueAt(tblPessoas.getSelectedRow(), 0).toString());
             }
         });
     }
@@ -175,7 +175,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
 
         lblEmail.setText("Email");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${emailControl.emailDigitado.endereco_email}"), txtEmail, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${pessoaControl.pessoaDigitado.email.endereco_email}"), txtEmail, org.jdesktop.beansbinding.BeanProperty.create("text"));
         bindingGroup.addBinding(binding);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -560,7 +560,11 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         // foi salva no banco!!
         telefoneControl.setPessoaDigitada(pessoaControl.getPessoaDigitado());
         telefoneControl2.setPessoaDigitada(pessoaControl.getPessoaDigitado());
+        emailControl.setEmailDigitado(pessoaControl.getEmailDigitado());
+        //emailControl.setEmailDigitado(pessoaControl.getEmail());
+        //emailControl.setEmailSelecionado( pessoaControl.getEmail() );  // testee
         emailControl.setPessoaDigitada(pessoaControl.getPessoaDigitado()); 
+
         
         pessoaControl.salvar();
         
@@ -581,7 +585,7 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //pessoaControl.teste();
+        //pessoaControl.testPodeApagar();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletarActionPerformed

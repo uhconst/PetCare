@@ -74,6 +74,7 @@ public class Email{
     }
 
     public void setEndereco_email( String endereco_email ){
+        System.out.println("Email digitado dentro da classe email ao setar: "+endereco_email);
         this.endereco_email = endereco_email;
     }
 /*
