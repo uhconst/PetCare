@@ -573,6 +573,12 @@ public class CadastroPessoa extends javax.swing.JInternalFrame{
         telefoneControl2.salvar();
         emailControl.salvar();
         
+        /*
+         * Tem que pesquisar aqui de novo, porque ele só salva o email e telefone
+         * depois de salvar a pessoa, que é onde daria o refresh na tabela.
+         */
+        pessoaControl.pesquisar();
+        
         JOptionPane.showMessageDialog(this,
                 "Pessoa salva com sucesso",
                 "Salvar pessoa",
