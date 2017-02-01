@@ -18,7 +18,7 @@ public class ServicoDao{
     public void salvarAtualizar(Servico servico) {
         EntityManager em = Conexao.getEntityManager();
         em.getTransaction().begin();
-        if(servico.getId() !=null){
+        if(servico.getId() != null){
             servico = em.merge(servico);
         }
         em.persist(servico);
