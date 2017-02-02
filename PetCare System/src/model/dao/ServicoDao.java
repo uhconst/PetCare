@@ -44,7 +44,7 @@ public class ServicoDao{
         }
         if (servico.getDescricao() !=null &&
                 !servico.getDescricao().equals("")){
-            sql.append("and LOWER(r.servico) like '%'||LOWER(:servico)||'%'");
+            sql.append("and LOWER(r.descricao) like '%'||LOWER(:descricao)||'%'");
             
         }
         Query query = em.createQuery(sql.toString());
@@ -54,7 +54,7 @@ public class ServicoDao{
         }
         if (servico.getDescricao() != null &&
                 !servico.getDescricao().equals("")){
-            query.setParameter("servico","%"+servico.getDescricao());
+            query.setParameter("descricao","%"+servico.getDescricao());
         }
         return query.getResultList();
     }
